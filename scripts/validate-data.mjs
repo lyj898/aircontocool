@@ -85,6 +85,11 @@ if (!/^https:\/\/www\.nea\.gov\.sg\//.test(company.r32?.neaUrl ?? '')) err('comp
 if (!/^https:\/\/www\.ite\.edu\.sg\//.test(company.r32?.iteUrl ?? '')) err('company.json: r32.iteUrl must be an official ite.edu.sg page');
 if (!/^https:\/\/ourkampung\.com\/.+\/$/.test(company.guide?.url ?? '')) err('company.json: guide.url must be an ourkampung.com page with a trailing slash');
 if (company.siteUrl !== 'https://aircontocool.com') err('company.json: siteUrl must be https://aircontocool.com');
+// astro.config's site must match: it was once left at PestToClear's after the copy.
+{
+  const site = (readFileSync(join(root, 'astro.config.mjs'), 'utf8').match(/site:\s*'([^']+)'/) ?? [])[1];
+  if (site !== company.siteUrl) err(`astro.config.mjs: site is "${site}", expected "${company.siteUrl}"`);
+}
 
 for (const e of errors) console.error(`  ERROR ${e}`);
 console.log(`validate-data: ${services.length} services, ${errors.length} error(s)`);
