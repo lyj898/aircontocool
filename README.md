@@ -83,8 +83,11 @@ text (empty only where a visible label says the same) and width and height.
   details go to the team behind Junk to Clear, which passes them to the partner who'll quote. If sending
   fails, the visitor is told and everything they typed stays; no contact details are offered. No phone
   number, WhatsApp link or email address anywhere on the site.
-- **Family links.** None in the header or footer until the OurKampung family revamp. The About page links
-  Junk to Clear; service pages link OurKampung's aircon guide in the text. Never `rel="noreferrer"`.
+- **Family links.** Since the OurKampung family revamp (5 Oct 2026, `../jtc-family/briefs/family-revamp.md`)
+  the footer says "Part of OurKampung", linking `https://ourkampung.com/` with `rel="nofollow"`; that is the
+  only family link in the header or footer, and none go to the sister sites. The About page links Junk to Clear
+  and OurKampung's `/our-sites/`; service pages link OurKampung's aircon guide in the text. Never
+  `rel="noreferrer"`.
 
 ## Testing the form
 

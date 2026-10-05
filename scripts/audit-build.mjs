@@ -14,7 +14,8 @@
 //   - the only custom GA4 event is generate_lead; no button_click
 //   - form subjects are "AirconToCool – <page>"; the inbox appears only in the endpoint
 //   - every image exists, with alt, width and height
-//   - no links to family sites in the header or footer; no rel="noreferrer" on them
+//   - no links to family sites in the header or footer except the nofollow
+//     "Part of OurKampung" footer link; no rel="noreferrer" on any of them
 
 import { readFileSync, readdirSync, existsSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
@@ -239,7 +240,14 @@ for (const p of pages.values()) {
     (p.html.match(/<header[\s\S]*?<\/header>/) ?? [''])[0],
     (p.html.match(/<footer[\s\S]*?<\/footer>/) ?? [''])[0],
   ].join('');
-  if (FAMILY.test(chrome)) err(`${p.route}: family-site link in the header or footer (no sitewide links)`);
+  // The one allowed exception (family revamp, 5 Oct 2026): the footer's
+  // "Part of OurKampung" link to the home page, marked nofollow.
+  const footer = (p.html.match(/<footer[\s\S]*?<\/footer>/) ?? [''])[0];
+  const mother = [...footer.matchAll(/<a\b[^>]*href="https:\/\/ourkampung\.com\/"[^>]*>/g)];
+  if (mother.length !== 1) err(`${p.route}: footer needs exactly one "Part of OurKampung" link to https://ourkampung.com/`);
+  for (const [tag] of mother) if (!/rel="nofollow"/.test(tag)) err(`${p.route}: the footer's OurKampung link must be rel="nofollow"`);
+  const rest = chrome.replace(/<a\b[^>]*href="https:\/\/ourkampung\.com\/"[^>]*>/g, '');
+  if (FAMILY.test(rest)) err(`${p.route}: family-site link in the header or footer (only "Part of OurKampung" is allowed)`);
   for (const [tag] of p.html.matchAll(/<a\b[^>]*>/g)) {
     if (FAMILY.test(tag) && /noreferrer/.test(tag)) err(`${p.route}: rel="noreferrer" on a family link hides the referral`);
   }

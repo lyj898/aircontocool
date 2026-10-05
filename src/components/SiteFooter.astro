@@ -1,8 +1,10 @@
 ---
 /**
- * Site footer. No links to the other family sites here: the family rules
- * forbid sitewide or footer links between them. The About page carries the
- * one link to Junk to Clear.
+ * Site footer. The one family link here is "Part of OurKampung", the family's
+ * mother site (OurKampung family revamp, 5 Oct 2026), marked nofollow because
+ * it's for readers, not rankings, and never noreferrer, so GA4 still credits
+ * the visit. No footer links to the sister sites themselves; the About page
+ * carries the one link to Junk to Clear.
  */
 import Wordmark from './Wordmark.astro';
 import { company, services } from '../lib/data';
@@ -47,6 +49,9 @@ const link = 'text-sm text-ink-muted no-underline hover:text-brand';
         The work is carried out by independent partner aircon firms.
       </p>
       <p class="mt-1">{company.operatingHoursDisplay}</p>
+      <p class="mt-1">
+        Part of <a href="https://ourkampung.com/" rel="nofollow" class="text-ink-muted underline underline-offset-2 hover:text-brand">OurKampung</a>.
+      </p>
       <p class="mt-6 text-2xs text-ink-faint">&copy; {year} {company.entityName}.</p>
     </div>
   </div>
