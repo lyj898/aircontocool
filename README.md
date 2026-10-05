@@ -15,7 +15,7 @@ Build variables (repo variables in CI, Settings → Secrets and variables → Ac
 | Variable | What it does |
 |---|---|
 | `PUBLIC_GA4_ID` | GA4 measurement ID. Without it no analytics loads. |
-| `PUBLIC_FORM_ENDPOINT` | FormSubmit endpoint. Unset, the form posts to the raw address in `company.json`. Set it to FormSubmit's alias once the user confirms the alias; no code change needed. |
+| `PUBLIC_FORM_ENDPOINT` | FormSubmit endpoint. Set to the family's FormSubmit alias (5 Oct 2026, after the user confirmed it reaches their inbox); `contact.ts` adds `/ajax/`. Unset, the form falls back to the raw address in `company.json`, and the audit checks that address never appears outside the endpoint. |
 
 ```
 npm run dev      # local dev server
