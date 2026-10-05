@@ -1,0 +1,264 @@
+---
+/**
+ * /{service}/  e.g. /aircon-servicing/, /aircon-chemical-wash/
+ *
+ * One page per service, generated from services.json. Property types are a
+ * section of each page, not pages of their own, and there are deliberately no
+ * service x town pages below these: see README.
+ *
+ * The page says what the visit includes and what affects the price. Why and
+ * when to book each service is OurKampung's guide, linked where it helps.
+ */
+import type { GetStaticPaths } from 'astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Section from '../components/Section.astro';
+import FaqList from '../components/FaqList.astro';
+import R32Note from '../components/R32Note.astro';
+import QuoteSection from '../components/QuoteSection.astro';
+import SplitUnitDiagram from '../components/SplitUnitDiagram.astro';
+import ServiceLevels from '../components/ServiceLevels.astro';
+import GuideLink from '../components/GuideLink.astro';
+import Icon from '../components/Icon.astro';
+
+import { services } from '../lib/data';
+import { urls } from '../lib/urls';
+import { meta } from '../lib/seo';
+import { airconServiceNode } from '../lib/schema';
+import type { Service } from '../types';
+
+export const getStaticPaths = (() =>
+  services.map((service) => ({ params: { service: service.slug }, props: { service } }))) satisfies GetStaticPaths;
+
+interface Props {
+  service: Service;
+}
+
+const { service } = Astro.props;
+const path = urls.service(service.slug);
+const { title, description } = meta(service.metaTitle, service.metaDescription);
+const others = services.filter((s) => s.slug !== service.slug);
+const lower = service.serviceName.toLowerCase();
+
+/** The three cleaning levels get the side-by-side comparison. */
+const isCleaning = ['aircon-servicing', 'aircon-chemical-wash', 'aircon-chemical-overhaul'].includes(service.slug);
+/** Pages where refrigerant handling comes up. */
+const showR32 = service.slug === 'aircon-gas-top-up';
+
+const premises = [
+  { key: 'hdb', label: 'HDB flats', body: service.premises.hdb },
+  { key: 'condo', label: 'Condos', body: service.premises.condo },
+  { key: 'landed', label: 'Landed homes', body: service.premises.landed },
+  { key: 'office', label: 'Offices', body: service.premises.office },
+] as const;
+
+const sections = [
+  ['#included', 'What’s included'],
+  ...(isCleaning ? [['#compare', 'Service, wash or overhaul']] : []),
+  ['#price', 'Price'],
+  ['#prepare', 'Preparing'],
+  ['#premises', 'Homes and offices'],
+  ['#faq', 'Questions'],
+] as const;
+
+const tick = 'M13.5 4.5 6.5 12 2.5 8.2';
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  path={path}
+  crumbs={[{ name: service.serviceName, path }]}
+  schemaNodes={[airconServiceNode(service, path)]}
+  ctaHref="#quote"
+>
+  <section class="border-b border-line bg-surface">
+    <div class="wrap grid gap-10 py-12 sm:py-16 lg:grid-cols-[1.4fr_1fr] lg:items-center">
+      <div>
+        <h1 class="text-3xl font-semibold sm:text-4xl lg:text-5xl">{service.h1}</h1>
+        {service.intro.map((p, i) => (
+          <p class={i === 0 ? 'mt-5 text-lg leading-relaxed text-ink-muted' : 'mt-4 leading-relaxed text-ink-muted'}>{p}</p>
+        ))}
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a href="#quote" class="rounded-lg bg-brand px-6 py-3.5 font-semibold text-white no-underline hover:bg-brand-dark">
+            Get a quick quote
+          </a>
+          <a href="#included" class="rounded-lg bg-surface px-6 py-3.5 font-semibold text-brand no-underline ring-1 ring-line-strong hover:bg-brand-light">
+            What’s included
+          </a>
+        </div>
+        <nav aria-label="On this page" class="mt-8">
+          <ul class="flex flex-wrap gap-2 text-sm">
+            {sections.map(([href, label]) => (
+              <li><a href={href} class="inline-block rounded-full bg-canvas px-3.5 py-1.5 text-ink-muted no-underline ring-1 ring-line hover:text-brand hover:ring-brand/40">{label}</a></li>
+            ))}
+          </ul>
+        </nav>
+      </div>
+
+      <div class="order-first rounded-card border border-line bg-canvas p-4 lg:order-none">
+        <img
+          src={`/illo/${service.slug}.svg`}
+          alt={service.illoAlt}
+          width="320"
+          height="220"
+          fetchpriority="high"
+          decoding="async"
+          class="mx-auto h-40 w-auto sm:h-auto sm:w-full sm:max-w-sm"
+        />
+      </div>
+    </div>
+  </section>
+
+  <Section id="included">
+    <div class="max-w-3xl">
+      <h2 class="text-2xl font-semibold sm:text-3xl">What a {lower} includes</h2>
+      <p class="mt-4 text-ink-muted">
+        The partner firm confirms what its price covers when it quotes. Usually, in this order:
+      </p>
+    </div>
+    <ol class="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+      {service.included.map((step, i) => (
+        <li class="rounded-card border border-line bg-surface p-6">
+          <span class="flex size-9 items-center justify-center rounded-full bg-brand-light text-sm font-semibold text-brand">{i + 1}</span>
+          <h3 class="mt-3 font-semibold">{step.name}</h3>
+          <p class="mt-2 text-sm leading-relaxed text-ink-muted">{step.body}</p>
+        </li>
+      ))}
+    </ol>
+    <p class="mt-8 max-w-3xl rounded-card border border-sun-deep/30 bg-sun/50 p-5 text-sm leading-relaxed text-ink">{service.includedNote}</p>
+
+    <div class="mt-12 grid gap-10 lg:grid-cols-[1fr_1.1fr]">
+      <div>
+        <h3 class="text-xl font-semibold">When people book it</h3>
+        <ul class="mt-5 space-y-3">
+          {service.bookWhen.map((s) => (
+            <li class="flex gap-3 leading-relaxed text-ink-muted">
+              <svg class="mt-1.5 shrink-0 text-brand" width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d={tick} /></svg>
+              <span>{s}</span>
+            </li>
+          ))}
+        </ul>
+        <div class="mt-6">
+          <GuideLink line={service.guideLine} />
+        </div>
+      </div>
+      <SplitUnitDiagram service={service.slug} heading={`What a ${lower} deals with`} />
+    </div>
+  </Section>
+
+  {isCleaning && (
+    <Section id="compare" tone="sunk">
+      <div class="max-w-3xl">
+        <h2 class="text-2xl font-semibold sm:text-3xl">General servicing, chemical wash or chemical overhaul</h2>
+        <p class="mt-4 text-ink-muted">
+          The three cleaning services differ in how far the unit is taken apart. Side by side:
+        </p>
+      </div>
+      <div class="mt-8">
+        <ServiceLevels current={service.slug} />
+      </div>
+    </Section>
+  )}
+
+  <Section id="price" tone={isCleaning ? 'canvas' : 'sunk'}>
+    <div class="grid gap-10 lg:grid-cols-[1.3fr_1fr]">
+      <div>
+        <h2 class="flex items-center gap-3 text-2xl font-semibold sm:text-3xl"><Icon name="tag" size={28} class="text-brand" />What affects the price</h2>
+        <p class="mt-4 text-ink-muted">It comes with a quick quote. The firm will ask about:</p>
+        <ul class="mt-6 space-y-3">
+          {service.priceFactors.map((f) => (
+            <li class="flex gap-3 leading-relaxed text-ink-muted">
+              <span class="mt-2.5 size-1.5 shrink-0 rounded-full bg-brand" aria-hidden="true"></span>
+              <span>{f}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div class="rounded-card border border-brand/25 bg-brand-light/60 p-6 lg:mt-14">
+        <h3 class="font-semibold">Comparing quotes</h3>
+        <p class="mt-2 text-sm leading-relaxed text-ink-muted">{service.compareNote}</p>
+      </div>
+    </div>
+  </Section>
+
+  <Section id="prepare" tone={isCleaning ? 'sunk' : 'canvas'}>
+    <h2 class="text-2xl font-semibold sm:text-3xl">How to prepare, and what happens on the day</h2>
+    <div class="mt-8 grid gap-8 lg:grid-cols-2">
+      <div class="rounded-card border border-line bg-surface p-6">
+        <h3 class="flex items-center gap-2.5 font-semibold"><Icon name="clipboard" size={22} class="text-brand" />Before the visit</h3>
+        <ul class="mt-4 space-y-3">
+          {service.prepare.map((s) => (
+            <li class="flex gap-3 text-sm leading-relaxed text-ink-muted">
+              <svg class="mt-1 shrink-0 text-brand" width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d={tick} /></svg>
+              <span>{s}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div class="rounded-card border border-line bg-surface p-6">
+        <h3 class="flex items-center gap-2.5 font-semibold"><Icon name="calendar" size={22} class="text-brand" />On the day</h3>
+        <ol class="mt-4 space-y-3">
+          {service.onTheDay.map((s, i) => (
+            <li class="flex gap-3 text-sm leading-relaxed text-ink-muted">
+              <span class="flex size-6 shrink-0 items-center justify-center rounded-full bg-brand-light text-xs font-semibold text-brand">{i + 1}</span>
+              <span>{s}</span>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </div>
+    <div class="mt-8 max-w-3xl">
+      <h3 class="font-semibold">Afterwards</h3>
+      <p class="mt-2 leading-relaxed text-ink-muted">{service.afterwards}</p>
+    </div>
+  </Section>
+
+  <Section id="premises" tone={isCleaning ? 'canvas' : 'sunk'}>
+    <div class="max-w-3xl">
+      <h2 class="text-2xl font-semibold sm:text-3xl">{service.serviceName} in homes and offices</h2>
+      <p class="mt-4 text-ink-muted">
+        The same service is a different job in a flat, a landed house or an office. Here’s
+        what changes.
+      </p>
+    </div>
+    <div class="mt-8 grid gap-5 md:grid-cols-2">
+      {premises.map((p) => (
+        <div class="flex gap-4 rounded-card border border-line bg-surface p-5">
+          <img src={`/illo/property/${p.key}.svg`} alt="" width="120" height="120" loading="lazy" decoding="async" class="size-20 shrink-0" />
+          <div>
+            <h3 class="font-semibold">{p.label}</h3>
+            <p class="mt-2 text-sm leading-relaxed text-ink-muted">{p.body}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+    {showR32 && (
+      <div class="mt-10 max-w-3xl">
+        <R32Note />
+      </div>
+    )}
+  </Section>
+
+  <Section id="faq" tone={isCleaning ? 'sunk' : 'canvas'} narrow>
+    <h2 class="text-2xl font-semibold sm:text-3xl">Questions about {lower}</h2>
+    <div class="mt-8">
+      <FaqList faqs={service.faqs} />
+    </div>
+  </Section>
+
+  <QuoteSection pageName={service.name} service={service.slug} heading={`Get a quick ${lower} quote`} />
+
+  <Section>
+    <h2 class="text-xl font-semibold">Other aircon services</h2>
+    <ul class="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+      {others.map((o) => (
+        <li>
+          <a href={urls.service(o.slug)} class="flex items-center gap-3 rounded-card border border-line bg-surface p-3 text-sm font-medium text-brand no-underline hover:border-brand/40 hover:bg-brand-light/40">
+            <img src={`/illo/icon/${o.slug}.svg`} alt="" width="120" height="120" loading="lazy" decoding="async" class="size-12 shrink-0" />
+            <span>{o.serviceName}</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </Section>
+</BaseLayout>

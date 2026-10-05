@@ -1,0 +1,22 @@
+---
+/**
+ * One sentence pointing to OurKampung's aircon guide, which owns the "why"
+ * questions (how often, what each service is, what symptoms mean). The
+ * sentence comes from the data with {guide} where the link goes.
+ *
+ * Family rules: the link sits in the text where it helps, names the sister
+ * guide, and never carries rel="noreferrer".
+ */
+import { company } from '../lib/data';
+
+interface Props {
+  line: string;
+}
+
+const { line } = Astro.props;
+const [before = '', after = ''] = line.split('{guide}');
+---
+
+<p class="text-ink-muted">
+  {before}<a href={company.guide.url} class="text-brand underline underline-offset-2">{company.guide.site}’s aircon servicing guide</a>{after}
+</p>

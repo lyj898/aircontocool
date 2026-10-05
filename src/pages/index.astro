@@ -1,0 +1,170 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Section from '../components/Section.astro';
+import ServiceCards from '../components/ServiceCards.astro';
+import ServiceLevels from '../components/ServiceLevels.astro';
+import SplitUnitDiagram from '../components/SplitUnitDiagram.astro';
+import QuoteSection from '../components/QuoteSection.astro';
+import Icon from '../components/Icon.astro';
+
+import { company } from '../lib/data';
+import { urls } from '../lib/urls';
+import { meta } from '../lib/seo';
+
+const { title, description } = meta(
+  'AirconToCool | Aircon Servicing & Repair in Singapore',
+  'Aircon servicing, chemical wash, chemical overhaul, gas top-up and repair in Singapore homes and offices. One enquiry, and a partner aircon firm quotes.',
+);
+
+const steps = [
+  {
+    illo: 'step-enquiry',
+    alt: 'A phone showing a short enquiry form, with a snowflake beside it',
+    title: 'Tell us the job',
+    body: 'The service, how many units, the property and roughly where it is. A minute on the form below.',
+  },
+  {
+    illo: 'step-team',
+    alt: 'A computer on a desk and an envelope being passed on',
+    title: 'We pass it to a partner firm',
+    body: 'Usually within one working day, to an aircon firm that handles that kind of job.',
+  },
+  {
+    illo: 'step-quote',
+    alt: 'A quote on a clipboard with a tick beside it',
+    title: 'You get a quick quote',
+    body: 'The firm contacts you to confirm the units and gives you its price.',
+  },
+  {
+    illo: 'step-cool',
+    alt: 'A wall aircon blowing cool air, with a tick beside it',
+    title: 'You decide',
+    body: 'If you go ahead, the firm books a time and does the work.',
+  },
+] as const;
+
+const premises = [
+  { key: 'hdb', name: 'HDB flats', body: 'Multi-split systems with the outdoor unit on the aircon ledge, reached through a window.' },
+  { key: 'condo', name: 'Condos', body: 'Wall units and ceiling cassettes, with the condo’s rules on contractors and working hours.' },
+  { key: 'landed', name: 'Landed homes', body: 'More units across more floors, with outdoor units on roofs and high brackets.' },
+  { key: 'office', name: 'Offices', body: 'Cassettes and ducted units, usually done out of hours with building management.' },
+] as const;
+---
+
+<BaseLayout title={title} description={description} path={urls.home()} ctaHref="#quote">
+  <section class="border-b border-line bg-surface">
+    <div class="wrap pt-14 pb-8 sm:pt-20">
+      <p class="text-sm font-semibold uppercase tracking-wide text-brand">Aircon services in Singapore</p>
+      <h1 class="mt-3 max-w-3xl text-4xl font-semibold sm:text-5xl">Aircon not cooling the way it should? Tell us once, and a partner firm takes it from there.</h1>
+      <p class="mt-6 max-w-2xl text-lg leading-relaxed text-ink-muted">
+        General servicing, chemical wash, chemical overhaul, gas top-up and repair, for HDB
+        flats, condos, landed homes and offices. Send one enquiry and we’ll pass it to a
+        partner aircon firm, which quotes and does the work.
+      </p>
+      <div class="mt-8 flex flex-wrap gap-3">
+        <a href="#quote" class="rounded-lg bg-brand px-6 py-3.5 font-semibold text-white no-underline hover:bg-brand-dark">Get a quick quote</a>
+        <a href="#services" class="rounded-lg bg-surface px-6 py-3.5 font-semibold text-brand no-underline ring-1 ring-line-strong hover:bg-brand-light">See the services</a>
+      </div>
+      <p class="mt-6 text-sm text-ink-faint">Run by the team behind {company.parentBrand}.</p>
+    </div>
+    <div class="wrap">
+      <img
+        src="/illo/hero.svg"
+        alt="A living room kept cool by a wall-mounted aircon, beside an HDB block with outdoor units on its ledges, a condo, a landed house and an office tower"
+        width="1200"
+        height="460"
+        fetchpriority="high"
+        decoding="async"
+        class="mx-auto h-auto w-full max-w-5xl max-sm:h-56 max-sm:object-cover max-sm:object-[30%_100%]"
+      />
+    </div>
+  </section>
+
+  <Section id="services">
+    <div class="max-w-3xl">
+      <h2 class="text-2xl font-semibold sm:text-3xl">What do you need?</h2>
+      <p class="mt-4 text-ink-muted">
+        Each page says what the visit includes, what affects the price and how to prepare.
+      </p>
+    </div>
+    <div class="mt-8">
+      <ServiceCards />
+    </div>
+  </Section>
+
+  <Section tone="sunk">
+    <div class="max-w-3xl">
+      <h2 class="text-2xl font-semibold sm:text-3xl">Service, wash or overhaul</h2>
+      <p class="mt-4 text-ink-muted">
+        The three cleaning services differ in how far the unit is taken apart.
+      </p>
+    </div>
+    <div class="mt-8">
+      <ServiceLevels />
+    </div>
+  </Section>
+
+  <Section>
+    <SplitUnitDiagram heading="Inside a split aircon, and what each service deals with" />
+  </Section>
+
+  <Section tone="sunk">
+    <h2 class="text-2xl font-semibold sm:text-3xl">How it works</h2>
+    <ol class="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+      {steps.map((s, i) => (
+        <li class="flex flex-col overflow-hidden rounded-card border border-line bg-surface">
+          <div class="relative border-b border-line bg-canvas px-4 pt-2">
+            <img src={`/illo/${s.illo}.svg`} alt={s.alt} width="200" height="150" loading="lazy" decoding="async" class="mx-auto h-32 w-auto" />
+            <span class="absolute left-4 top-3 flex size-8 items-center justify-center rounded-full bg-brand text-sm font-semibold text-white">{i + 1}</span>
+          </div>
+          <div class="p-5">
+            <h3 class="font-semibold">{s.title}</h3>
+            <p class="mt-2 text-sm leading-relaxed text-ink-muted">{s.body}</p>
+          </div>
+        </li>
+      ))}
+    </ol>
+    <p class="mt-8 max-w-3xl text-ink-muted">
+      {company.tradingName} doesn’t service or repair aircons itself: independent partner
+      firms do. <a href={urls.howItWorks()} class="text-brand underline underline-offset-2">More on how it works</a>.
+    </p>
+  </Section>
+
+  <Section>
+    <div class="grid gap-10 lg:grid-cols-2">
+      <div>
+        <h2 class="text-2xl font-semibold sm:text-3xl">For homes and offices</h2>
+        <ul class="mt-8 grid gap-4 sm:grid-cols-2">
+          {premises.map((p) => (
+            <li class="rounded-card border border-line bg-surface p-5">
+              <img src={`/illo/property/${p.key}.svg`} alt="" width="120" height="120" loading="lazy" decoding="async" class="size-16" />
+              <h3 class="mt-3 font-semibold">{p.name}</h3>
+              <p class="mt-1 text-sm leading-relaxed text-ink-muted">{p.body}</p>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div>
+        <h2 class="flex items-center gap-3 text-2xl font-semibold sm:text-3xl"><Icon name="tag" size={28} class="text-brand" />About prices</h2>
+        <p class="mt-4 leading-relaxed text-ink-muted">
+          The price comes with a quick quote from the partner firm. It depends mostly on the
+          service, how many units there are and what type they are, so tell us those in the
+          form and the quote can be given quickly.
+        </p>
+        <p class="mt-4 leading-relaxed text-ink-muted">
+          When you compare quotes, compare what’s included: which parts are cleaned, whether
+          the outdoor unit is covered, and whether a gas check or a leak check is part of it.
+        </p>
+        <div class="mt-8 flex gap-4 rounded-card border border-line bg-surface p-6">
+          <span class="flex size-11 shrink-0 items-center justify-center rounded-full bg-brand-light text-brand"><Icon name="snow" /></span>
+          <p class="text-sm leading-relaxed text-ink-muted">
+            Not sure which service a unit needs? Describe what it’s doing in the form, and the
+            firm will suggest one when it quotes.
+          </p>
+        </div>
+      </div>
+    </div>
+  </Section>
+
+  <QuoteSection pageName="Home" />
+</BaseLayout>

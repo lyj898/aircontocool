@@ -1,0 +1,151 @@
+---
+/**
+ * Cutaway of a split aircon, with a legend saying which service deals with
+ * each numbered part. The numbers are drawn in public/illo/split-unit-cutaway.svg
+ * (scripts/illustrations.mjs); the legend is HTML so it reads at any width
+ * and to screen readers.
+ *
+ * It says what each visit usually covers, not why: the why is OurKampung's.
+ */
+import { urls } from '../lib/urls';
+
+interface Props {
+  /** List only the parts this service deals with, in its own words. */
+  service?: string;
+  heading?: string;
+}
+
+const { service, heading = 'What each service deals with' } = Astro.props;
+
+const name = {
+  'aircon-servicing': 'Servicing',
+  'aircon-chemical-wash': 'Chemical wash',
+  'aircon-chemical-overhaul': 'Overhaul',
+  'aircon-gas-top-up': 'Gas top-up',
+  'aircon-repair': 'Repair',
+} as const;
+
+/**
+ * Each part, with what each service does to it. `home` is the overview used
+ * where no service is given; a service page lists only the parts its service
+ * deals with, in that service's words.
+ */
+type Slug = keyof typeof name;
+type Notes = { home: string } & Partial<Record<Slug, string>>;
+const parts: { n: number; part: string; where: string; notes: Notes }[] = [
+  {
+    n: 1, part: 'Filters', where: 'Indoor',
+    notes: {
+      home: 'Lifted out and washed on every cleaning visit.',
+      'aircon-servicing': 'Taken out, washed and dried, then refitted.',
+      'aircon-chemical-wash': 'Removed and washed while the coil is treated.',
+      'aircon-chemical-overhaul': 'Washed with the other parts once the unit is down.',
+    },
+  },
+  {
+    n: 2, part: 'Cooling coil', where: 'Indoor',
+    notes: {
+      home: 'Its face is cleaned in a service, rinsed through in a wash, and soaked in an overhaul.',
+      'aircon-servicing': 'Its front face sprayed and brushed with the unit in place.',
+      'aircon-chemical-wash': 'Sprayed with cleaning solution, left to work, then rinsed through.',
+      'aircon-chemical-overhaul': 'Lifted out of the casing and soaked in a tub.',
+      'aircon-gas-top-up': 'Looked at too, since a dirty coil can look like low gas.',
+    },
+  },
+  {
+    n: 3, part: 'Blower wheel', where: 'Indoor',
+    notes: {
+      home: 'Brushed in a service, washed in a wash, taken out and soaked in an overhaul.',
+      'aircon-servicing': 'Brushed and sprayed through the louvre opening.',
+      'aircon-chemical-wash': 'Washed of the black build-up on its blades.',
+      'aircon-chemical-overhaul': 'Taken out of the unit and soaked on its own.',
+    },
+  },
+  {
+    n: 4, part: 'Drain tray', where: 'Indoor',
+    notes: {
+      home: 'Cleared of slime so condensed water runs away.',
+      'aircon-servicing': 'Cleared of slime and debris.',
+      'aircon-chemical-wash': 'Washed out along with the coil.',
+      'aircon-chemical-overhaul': 'Removed, scrubbed and refitted.',
+    },
+  },
+  {
+    n: 5, part: 'Drainage pipe', where: 'Indoor to outside',
+    notes: {
+      home: 'Flushed on cleaning visits; cleared or replaced as a repair when it stays blocked.',
+      'aircon-servicing': 'Flushed through with a pump or vacuum.',
+      'aircon-chemical-wash': 'Flushed once the tray is clean.',
+      'aircon-chemical-overhaul': 'Disconnected while the unit is down, then reconnected with a proper fall.',
+      'aircon-repair': 'Cleared, or replaced when it stays blocked or leaks.',
+    },
+  },
+  {
+    n: 6, part: 'Condenser coil', where: 'Outdoor',
+    notes: {
+      home: 'Its fins are cleaned where they can be reached safely.',
+      'aircon-servicing': 'Fins cleared of leaves and dust where they can be reached.',
+      'aircon-chemical-wash': 'Often washed too; some firms price it separately.',
+    },
+  },
+  {
+    n: 7, part: 'Outdoor fan and motor', where: 'Outdoor',
+    notes: {
+      home: 'Checked as the unit runs; a noisy or failed motor is a repair.',
+      'aircon-repair': 'A noisy or failed fan motor is replaced.',
+    },
+  },
+  {
+    n: 8, part: 'Service valves', where: 'Outdoor',
+    notes: {
+      home: 'Where gauges connect to read the gas pressure, and a common place for leaks.',
+      'aircon-gas-top-up': 'Gauges connect here to read the pressure, and the joints are checked for leaks.',
+      'aircon-repair': 'Leaks at the valves and joints are found and fixed.',
+    },
+  },
+];
+
+const by = (p: (typeof parts)[number]) => Object.keys(p.notes).filter((k) => k !== 'home') as Slug[];
+const shown = service ? parts.filter((p) => service in p.notes) : parts;
+---
+
+<figure class="rounded-card border border-line bg-surface p-4 sm:p-6">
+  <h3 class="text-lg font-semibold">{heading}</h3>
+  <img
+    src="/illo/split-unit-cutaway.svg"
+    alt="Cutaway of a split aircon. Indoors: the filters (1), cooling coil (2), blower wheel (3), drain tray (4) and drainage pipe (5). Outdoors, joined by two refrigerant pipes through the wall: the condenser coil (6), the outdoor fan (7) and the service valves (8)."
+    width="960"
+    height="420"
+    loading="lazy"
+    decoding="async"
+    class="mt-4 h-auto w-full"
+  />
+  <figcaption>
+    <ol class="mt-6 grid gap-x-8 gap-y-4 md:grid-cols-2">
+      {shown.map((p) => {
+        const note = (service && p.notes[service as Slug]) || p.notes.home;
+        return (
+          <li class="flex gap-3">
+            <span class="flex size-7 shrink-0 items-center justify-center rounded-full bg-brand-dark text-sm font-semibold text-white">{p.n}</span>
+            <div>
+              <p class="font-semibold text-ink">{p.part} <span class="text-xs font-normal text-ink-faint">· {p.where}</span></p>
+              <p class="mt-0.5 text-sm leading-relaxed text-ink-muted">{note}</p>
+              <ul class="mt-1.5 flex flex-wrap gap-1.5" aria-label="Services that deal with it">
+                {by(p).map((slug) => (
+                  <li>
+                    <a href={urls.service(slug)} class={`inline-block rounded-full px-2.5 py-0.5 text-xs font-medium no-underline ${slug === service ? 'bg-brand text-white' : 'bg-brand-light text-brand-dark hover:bg-brand hover:text-white'}`}>{name[slug]}</a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </li>
+        );
+      })}
+    </ol>
+    {!service && (
+      <p class="mt-6 text-sm text-ink-faint">
+        What each firm includes varies, especially for the outdoor unit. Ask what the price covers when the firm quotes.
+      </p>
+    )}
+  </figcaption>
+</figure>

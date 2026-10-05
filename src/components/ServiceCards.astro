@@ -1,0 +1,40 @@
+---
+/** Grid of illustrated links to the service pages. Used on the home page and the 404 page. */
+import { services } from '../lib/data';
+import { urls } from '../lib/urls';
+
+interface Props {
+  /** Leave out the current page's service. */
+  exclude?: string;
+}
+
+const { exclude } = Astro.props;
+const list = services.filter((s) => s.slug !== exclude);
+---
+
+<ul class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+  {list.map((s) => (
+    <li>
+      <a
+        href={urls.service(s.slug)}
+        class="group flex h-full flex-col overflow-hidden rounded-card border border-line bg-surface no-underline transition-colors hover:border-brand/40"
+      >
+        <div class="border-b border-line bg-canvas px-6 pt-4">
+          <img
+            src={`/illo/${s.slug}.svg`}
+            alt=""
+            width="320"
+            height="220"
+            loading="lazy"
+            decoding="async"
+            class="mx-auto h-40 w-auto transition-transform duration-200 group-hover:scale-[1.03]"
+          />
+        </div>
+        <div class="p-6">
+          <h3 class="font-semibold text-ink group-hover:text-brand">{s.serviceName} &rarr;</h3>
+          <p class="mt-2 text-sm leading-relaxed text-ink-muted">{s.summary}</p>
+        </div>
+      </a>
+    </li>
+  ))}
+</ul>

@@ -1,0 +1,53 @@
+---
+/**
+ * Site footer. No links to the other family sites here: the family rules
+ * forbid sitewide or footer links between them. The About page carries the
+ * one link to Junk to Clear.
+ */
+import Wordmark from './Wordmark.astro';
+import { company, services } from '../lib/data';
+import { urls } from '../lib/urls';
+
+const year = new Date().getFullYear();
+const link = 'text-sm text-ink-muted no-underline hover:text-brand';
+---
+
+<div aria-hidden="true" class="h-16 bg-[url(/illo/skyline.svg)] bg-[length:auto_64px] bg-bottom bg-repeat-x"></div>
+<footer class="border-t border-line bg-surface-sunk">
+  <div class="wrap py-14">
+    <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+      <div class="lg:col-span-2">
+        <Wordmark class="text-base" />
+        <p class="mt-3 max-w-sm text-sm leading-relaxed text-ink-muted">{company.businessModelStatement}</p>
+      </div>
+
+      <div>
+        <h2 class="text-sm font-semibold text-ink">Aircon services</h2>
+        <ul class="mt-3 space-y-2">
+          {services.map((s) => (
+            <li><a href={urls.service(s.slug)} class={link}>{s.serviceName}</a></li>
+          ))}
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="text-sm font-semibold text-ink">AirconToCool</h2>
+        <ul class="mt-3 space-y-2">
+          <li><a href={urls.howItWorks()} class={link}>How it works</a></li>
+          <li><a href={urls.about()} class={link}>About</a></li>
+          <li><a href={urls.contact()} class={link}>Contact</a></li>
+          <li><a href={urls.privacy()} class={link}>Privacy policy</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-12 border-t border-line pt-8 text-sm leading-relaxed text-ink-muted">
+      <p>
+        {company.tradingName} is run by the team behind {company.parentBrand}.
+        The work is carried out by independent partner aircon firms.
+      </p>
+      <p class="mt-1">{company.operatingHoursDisplay}</p>
+      <p class="mt-6 text-2xs text-ink-faint">&copy; {year} {company.entityName}.</p>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,116 @@
+---
+/**
+ * Base layout. Owns <head>, the canonical link, and the single JSON-LD graph.
+ */
+import '../styles/global.css';
+
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import StickyMobileCTA from '../components/StickyMobileCTA.astro';
+import Analytics from '../components/Analytics.astro';
+
+import { company } from '../lib/data';
+import { canonical, urls, assertValidPath, type Path } from '../lib/urls';
+import {
+  graph,
+  organizationNode,
+  webSiteNode,
+  webPageNode,
+  breadcrumbNode,
+  type Crumb,
+} from '../lib/schema';
+
+interface Props {
+  title: string;
+  description: string;
+  /** Site-root-relative path of THIS page. Drives the self-referencing canonical. */
+  path: Path;
+  /** Breadcrumb trail excluding Home, which is prepended. Omit on the homepage. */
+  crumbs?: Crumb[];
+  /** Extra JSON-LD nodes merged into the page's single graph. */
+  schemaNodes?: Record<string, unknown>[];
+  /** Used by the 404 page. */
+  noindex?: boolean;
+  /** Where the mobile sticky CTA points: the page's own form if it has one. */
+  ctaHref?: string;
+}
+
+const { title, description, path, crumbs = [], schemaNodes = [], noindex = false, ctaHref } = Astro.props;
+
+assertValidPath(path);
+
+const canonicalUrl = canonical(path);
+const fullCrumbs: Crumb[] = crumbs.length ? [{ name: 'Home', path: urls.home() }, ...crumbs] : [];
+
+const jsonLd = graph([
+  organizationNode(),
+  webSiteNode(),
+  webPageNode(path, title, description),
+  ...(fullCrumbs.length ? [breadcrumbNode(fullCrumbs, path)] : []),
+  ...schemaNodes,
+]);
+---
+
+<!doctype html>
+<html lang="en-SG">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+    {noindex
+      ? <meta name="robots" content="noindex,follow" />
+      : <meta name="robots" content="index,follow,max-image-preview:large" />}
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta name="theme-color" content="#f6f9fa" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={company.tradingName} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:locale" content="en_SG" />
+    <meta name="twitter:card" content="summary" />
+
+    <script type="application/ld+json" is:inline set:html={jsonLd} />
+  </head>
+
+  <body class="pb-sticky-cta lg:pb-0">
+    <a
+      href="#main"
+      class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-lg focus:bg-brand focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-white"
+    >
+      Skip to content
+    </a>
+
+    <SiteHeader />
+
+    {fullCrumbs.length > 0 && (
+      <nav aria-label="Breadcrumb" class="border-b border-line bg-canvas">
+        <ol class="wrap flex flex-wrap items-center gap-x-2 gap-y-1 py-3 text-xs text-ink-muted">
+          {fullCrumbs.map((c, i) => (
+            <li class="flex items-center gap-2">
+              {i > 0 && <span aria-hidden="true" class="text-ink-faint">/</span>}
+              {i === fullCrumbs.length - 1 ? (
+                <span aria-current="page" class="font-medium text-ink">{c.name}</span>
+              ) : (
+                <a href={c.path} class="no-underline hover:text-brand">{c.name}</a>
+              )}
+            </li>
+          ))}
+        </ol>
+      </nav>
+    )}
+
+    <main id="main">
+      <slot />
+    </main>
+
+    <SiteFooter />
+    <StickyMobileCTA href={ctaHref} />
+    <Analytics />
+  </body>
+</html>

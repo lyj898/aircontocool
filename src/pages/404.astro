@@ -1,0 +1,34 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Section from '../components/Section.astro';
+import { services } from '../lib/data';
+import { urls } from '../lib/urls';
+import { meta } from '../lib/seo';
+
+const { title, description } = meta(
+  'Page Not Found | AirconToCool',
+  'That page does not exist. Browse aircon services, see how AirconToCool works, or send an enquiry for a quick quote from a partner aircon firm.',
+);
+---
+
+<BaseLayout title={title} description={description} path={'/404/'} noindex={true}>
+  <Section narrow>
+    <img
+      src="/illo/not-found.svg"
+      alt="A wall aircon blowing cool air towards a question mark"
+      width="480"
+      height="300"
+      decoding="async"
+      class="h-auto w-full max-w-sm"
+    />
+    <h1 class="mt-6 text-3xl font-semibold">Page not found</h1>
+    <p class="mt-4 text-ink-muted">That page doesn’t exist. These might help:</p>
+    <ul class="mt-6 space-y-2">
+      <li><a href={urls.home()} class="text-brand underline underline-offset-2">Home</a></li>
+      {services.map((s) => (
+        <li><a href={urls.service(s.slug)} class="text-brand underline underline-offset-2">{s.serviceName}</a></li>
+      ))}
+      <li><a href={urls.contact()} class="text-brand underline underline-offset-2">Get a quick quote</a></li>
+    </ul>
+  </Section>
+</BaseLayout>

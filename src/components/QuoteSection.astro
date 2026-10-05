@@ -1,0 +1,58 @@
+---
+/**
+ * The enquiry form in a page section, with what happens next beside it.
+ * Anchored at #quote so the page's CTAs and the mobile sticky bar jump to it.
+ */
+import LeadForm from './LeadForm.astro';
+import { company } from '../lib/data';
+import { urls } from '../lib/urls';
+import Icon from './Icon.astro';
+
+const next = [
+  { icon: 'message', text: 'We read your enquiry, usually within one working day.' },
+  { icon: 'share', text: 'We pass it to a partner aircon firm that handles this kind of job.' },
+  { icon: 'tag', text: 'The firm contacts you to confirm the units and gives you a quick quote.' },
+  { icon: 'check', text: 'You decide whether to go ahead.' },
+] as const;
+
+interface Props {
+  pageName: string;
+  service?: string;
+  heading?: string;
+}
+
+const { pageName, service, heading = 'Ask for a quote' } = Astro.props;
+---
+
+<section id="quote" class="border-t border-line bg-surface py-14 sm:py-20">
+  <div class="wrap grid gap-12 lg:grid-cols-[1.5fr_1fr]">
+    <div>
+      <h2 class="text-2xl font-semibold sm:text-3xl">{heading}</h2>
+      <p class="mt-3 max-w-xl text-ink-muted">
+        Tell us the service, how many units and roughly where you are. It takes a
+        minute, and there's no obligation to book.
+      </p>
+      <div class="mt-8">
+        <LeadForm pageName={pageName} service={service} />
+      </div>
+    </div>
+
+    <aside class="space-y-6 lg:pt-2">
+      <div class="rounded-card border border-line bg-canvas p-6">
+        <h3 class="font-semibold">What happens next</h3>
+        <ol class="mt-4 space-y-4 text-sm leading-relaxed text-ink-muted">
+          {next.map((n) => (
+            <li class="flex items-start gap-3">
+              <span class="flex size-9 shrink-0 items-center justify-center rounded-full bg-brand-light text-brand"><Icon name={n.icon} size={20} /></span>
+              <span class="pt-1.5">{n.text}</span>
+            </li>
+          ))}
+        </ol>
+        <p class="mt-4 text-sm">
+          <a href={urls.howItWorks()} class="text-brand underline underline-offset-2">More on how it works</a>
+        </p>
+      </div>
+      <p class="text-sm leading-relaxed text-ink-muted">{company.operatingHoursDisplay}</p>
+    </aside>
+  </div>
+</section>

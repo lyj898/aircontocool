@@ -1,0 +1,451 @@
+[
+  {
+    "slug": "aircon-servicing",
+    "name": "General servicing",
+    "serviceName": "Aircon servicing",
+    "metaTitle": "Aircon Servicing Singapore | HDB, Condo & Office",
+    "metaDescription": "Aircon servicing in Singapore for HDB flats, condos, landed homes and offices. What a general service includes, and a quick quote from a partner firm.",
+    "h1": "Aircon servicing in Singapore",
+    "summary": "Routine general servicing for wall-mounted, ceiling cassette and multi-split aircons in Singapore homes and offices, arranged through a partner aircon firm.",
+    "intro": [
+      "A general service is the routine visit that keeps an aircon running: filters washed, the fan coil and blower cleaned, the drainage flushed and the unit tested. Tell us how many units you have and where, and we’ll pass it to a partner aircon firm that services that kind of system.",
+      "The firm confirms the job, gives you a quick quote and books a time. Most homes book one visit for every unit in the flat or house, so it’s worth counting the indoor units before you send the form."
+    ],
+    "included": [
+      {
+        "name": "Filters out and washed",
+        "body": "The front panel is lifted, the mesh filters are taken out, washed and dried, and anything torn is pointed out to you rather than put back."
+      },
+      {
+        "name": "Fan coil and blower cleaned",
+        "body": "The technician sprays and brushes the face of the cooling coil and cleans the blower wheel, the drum-shaped fan behind the louvres that collects black dust."
+      },
+      {
+        "name": "Drainage flushed",
+        "body": "The drain tray is cleared and the drainage pipe is flushed through, usually with a pump or vacuum, so condensed water runs out instead of dripping indoors."
+      },
+      {
+        "name": "Outdoor unit checked",
+        "body": "The condenser outside is looked over and its fins cleaned of leaves and dust where they can be reached safely from the ledge, roof or bracket."
+      },
+      {
+        "name": "Test run",
+        "body": "Each unit is switched on and left to run while the technician checks the air coming out, the noise, the drainage and the remote, and tells you about anything that needs more than a service."
+      }
+    ],
+    "includedNote": "A general service cleans what can be reached with the unit in place. It doesn’t take the coil apart or soak it in chemical, which is what a chemical wash and a chemical overhaul are for.",
+    "bookWhen": [
+      "It’s been a few months since the last service, or you don’t know when the last one was.",
+      "You’ve moved into a home and want every unit cleaned before you settle in.",
+      "Your tenancy agreement asks for regular servicing, or the landlord wants receipts at handover.",
+      "An office or shop wants a regular schedule so units are serviced before they cause trouble."
+    ],
+    "guideLine": "How often to service, and what a general service can and can’t fix, is covered in {guide}, a sister guide run by the same team.",
+    "priceFactors": [
+      "How many indoor units there are. Firms price per unit, and the rate per unit usually falls as the number rises.",
+      "The type of unit: wall-mounted fan coils are the quickest, while ceiling cassettes and ducted units take longer.",
+      "Whether you book a one-off visit or a contract with visits spread across the year.",
+      "How easy the outdoor units are to reach, from an aircon ledge, a roof or a high wall bracket.",
+      "Anything found on the day that needs more than a service, which the firm should price separately before doing it."
+    ],
+    "compareNote": "Compare the price per unit at the number of units you have, whether the outdoor unit is included, and whether a contract with visits through the year works out cheaper than one-off visits.",
+    "prepare": [
+      "Count the indoor units and note which rooms they’re in, so the firm brings enough time and the right equipment.",
+      "Clear a space under each indoor unit and move anything fragile off the furniture below it.",
+      "Make sure the window to the aircon ledge can be opened, and clear any plants or laundry racks out there.",
+      "Note any unit that drips, smells or cools poorly, so the technician can look at it first."
+    ],
+    "onTheDay": [
+      "The technician puts down a sheet or a catch bag under each unit before opening it.",
+      "Units are serviced one at a time, and each is tested before the next is opened.",
+      "Water from the drainage flush is caught and carried away rather than left on the floor.",
+      "At the end you’re shown each unit running, and told about anything that needs a chemical wash or a repair."
+    ],
+    "afterwards": "Run each unit for a while and check that it cools and drains normally. Keep the receipt or service report, especially if you rent, since landlords often ask for it at handover. If a unit drips or smells again within days, tell the firm that did the service first.",
+    "premises": {
+      "hdb": "Most HDB flats have a multi-split system: one outdoor compressor on the aircon ledge serving two to four fan coils. A service covers every fan coil plus the outdoor unit, reached through the window. Mention your flat type, so the firm knows roughly how many units to expect.",
+      "condo": "Condo units often have more fan coils, sometimes including a ceiling cassette in the living room. Many condos ask contractors to register at the guardhouse and work within set hours, so check the rules with management before the visit.",
+      "landed": "Landed homes usually have several outdoor units, sometimes on the roof or a high bracket, and more fan coils spread across floors. Tell the firm how the outdoor units are reached, since ladders or extra time may be needed.",
+      "office": "Offices often have ceiling cassettes or ducted units, which take longer per unit than wall-mounted ones. Servicing can usually be done before or after office hours, and building management may need to approve the work and access."
+    },
+    "faqs": [
+      {
+        "q": "How long does a general service take?",
+        "a": "Allow a little under an hour for each wall-mounted unit, and longer for ceiling cassettes and ducted units. A typical flat with several fan coils is a morning or an afternoon. The firm will give you a better idea once it knows how many units you have."
+      },
+      {
+        "q": "Do I need to be home?",
+        "a": "Someone needs to let the technician in, show them the units and see each one running at the end. In an office, building management or a staff member can do this."
+      },
+      {
+        "q": "Can I book a servicing contract?",
+        "a": "Yes. Many firms offer contracts with visits spread across the year, which usually cost less per visit than booking each one separately. Ask for both prices when the firm quotes."
+      },
+      {
+        "q": "Will the service stop my aircon dripping?",
+        "a": "Often, because a dirty coil and a blocked drainage pipe are the usual causes, and a general service deals with both. If it keeps dripping afterwards, the unit may need a chemical wash or a repair, and the technician should tell you which."
+      }
+    ],
+    "illoAlt": "A technician on a step stool sprays the cooling coil of a wall-mounted aircon, with its filter lifted out and a catch bag underneath"
+  },
+  {
+    "slug": "aircon-chemical-wash",
+    "name": "Chemical wash",
+    "serviceName": "Aircon chemical wash",
+    "metaTitle": "Aircon Chemical Wash Singapore | Homes & Offices",
+    "metaDescription": "Aircon chemical wash in Singapore: the coil and blower deep-cleaned with the unit still mounted. What it includes, and a quick quote from a partner firm.",
+    "h1": "Aircon chemical wash in Singapore",
+    "summary": "A chemical wash for wall-mounted and ceiling aircons in Singapore homes and offices: the coil, blower and drain tray deep-cleaned with the unit still mounted, arranged through a partner aircon firm.",
+    "intro": [
+      "A chemical wash goes deeper than a general service without taking the unit off the wall. The cooling coil and blower are treated with a cleaning solution, left to work, and rinsed through, while a catch bag around the unit takes the dirty water away.",
+      "Tell us how many units need it and what they’re doing, and we’ll pass it to a partner aircon firm, which confirms the job, gives you a quick quote and books a time. Many people book a chemical wash for one or two problem units and a general service for the rest."
+    ],
+    "included": [
+      {
+        "name": "Panels and filters off",
+        "body": "The front panel, filters and louvres come off so the coil and blower are exposed. Nothing else is dismantled, and the fan coil stays on its mounting."
+      },
+      {
+        "name": "Catch bag fitted",
+        "body": "A waterproof bag is wrapped around the unit and taped to the wall, with a hose into a bucket, so the rinse water doesn’t run down the wall or onto the floor."
+      },
+      {
+        "name": "Coil treated and rinsed",
+        "body": "The cooling coil is sprayed with a cleaning solution, left for the time the product needs, then rinsed thoroughly with a pressure sprayer until the water runs clear."
+      },
+      {
+        "name": "Blower and drain tray cleaned",
+        "body": "The blower wheel is washed of the black build-up that throws dust and smell into the room, and the drain tray and drainage pipe are cleared and flushed."
+      },
+      {
+        "name": "Outdoor unit washed",
+        "body": "Where it can be reached safely, the condenser coil outside is washed too, so the system can get rid of heat properly."
+      },
+      {
+        "name": "Reassembled and tested",
+        "body": "Everything goes back on, and the unit is run while the technician checks the airflow, the drainage and the temperature of the air coming out."
+      }
+    ],
+    "includedNote": "Some firms quote the indoor and outdoor units separately, and some include the outdoor wash only in their chemical overhaul. Ask what the price covers when the firm quotes.",
+    "bookWhen": [
+      "A unit still drips, smells or cools poorly after a general service.",
+      "You can see black specks or dust blowing out of the louvres.",
+      "A home has been empty for months, or you’ve just moved into a resale flat and don’t know the units’ history.",
+      "After renovation, when fine dust has been drawn through the units."
+    ],
+    "guideLine": "What a chemical wash does that a general service doesn’t, and when it’s worth it, is explained in {guide}, a sister guide run by the same team.",
+    "priceFactors": [
+      "How many units need the wash, and whether the rest of the home needs a general service on the same visit.",
+      "The type of unit. Ceiling cassettes take more work than wall-mounted fan coils.",
+      "Whether the outdoor unit is washed as well, and how easy it is to reach.",
+      "How dirty the coil and blower are, which the firm may only know once it opens the unit.",
+      "Whether the firm finds a fault on the day that needs a repair, priced separately before any work is done."
+    ],
+    "compareNote": "Check whether the price is per indoor unit, whether the outdoor unit is washed too, and whether a general service for your other units can be done on the same visit.",
+    "prepare": [
+      "Tell the firm which units need the wash and which only need a general service, so it brings enough catch bags and time.",
+      "Clear the area under each unit, move electronics away and take down anything hanging on the wall beside it.",
+      "Make sure there’s a tap or bathroom nearby the technician can fill buckets from and empty them into.",
+      "Open the window to the aircon ledge and clear the ledge, if the outdoor unit is to be washed."
+    ],
+    "onTheDay": [
+      "The technician switches off the unit at the isolator before opening it.",
+      "Panels, filters and louvres come off, and the catch bag goes on.",
+      "The coil is treated, left for a few minutes, and rinsed until the water runs clear, then the blower and drain tray are cleaned.",
+      "The unit is reassembled and run, and you’re shown it cooling and draining before the technician leaves."
+    ],
+    "afterwards": "A faint smell of the cleaning solution can last a short while; leave the room ventilated if it bothers you. Run the unit normally and watch for drips over the next day or two. Keep the service report, and tell the firm first if anything isn’t right.",
+    "premises": {
+      "hdb": "In an HDB flat the wash is usually for one or two bedroom units, with a general service for the others. The outdoor compressor on the aircon ledge is reached through the window, so that window must open fully.",
+      "condo": "Condo units often have a ceiling cassette in the living room as well as wall units in the bedrooms, and cassettes take longer to wash. Check contractor registration and permitted working hours with management.",
+      "landed": "Landed homes tend to have more units across several floors and outdoor units on the roof or high brackets. Tell the firm which units are the problem and how the outdoor units are reached.",
+      "office": "Offices with ceiling cassettes or ducted units usually book washes out of hours so desks under the units can be cleared. Building management may need to approve the work and the use of water on the floor."
+    },
+    "faqs": [
+      {
+        "q": "How long does a chemical wash take?",
+        "a": "Longer than a general service: allow roughly an hour or more per wall-mounted unit, and more for cassettes. The firm will give you an estimate once it knows the number and type of units."
+      },
+      {
+        "q": "Is the chemical safe in a bedroom?",
+        "a": "The solution is rinsed out of the unit before it’s reassembled. If anyone at home has asthma or a sensitivity, say so when you book, and ask the firm which product it uses."
+      },
+      {
+        "q": "Will my wall get wet?",
+        "a": "It shouldn’t. The catch bag around the unit takes the rinse water to a bucket. Move anything you’d hate to see splashed, and point out wallpaper or fresh paint when the technician arrives."
+      },
+      {
+        "q": "Should I book a chemical wash or a chemical overhaul?",
+        "a": "A wash suits most units that a general service no longer fixes. An overhaul takes the unit down and apart, for the worst cases. Describe the problem in the form, and the firm will suggest which it would do."
+      }
+    ],
+    "illoAlt": "A wall-mounted aircon wrapped in a catch bag draining into a bucket, while a spray wand rinses its cooling coil"
+  },
+  {
+    "slug": "aircon-chemical-overhaul",
+    "name": "Chemical overhaul",
+    "serviceName": "Aircon chemical overhaul",
+    "metaTitle": "Aircon Chemical Overhaul Singapore | HDB & Condo",
+    "metaDescription": "Aircon chemical overhaul in Singapore: the fan coil taken down, dismantled and every part soaked and cleaned. What it involves, and a quick quote.",
+    "h1": "Aircon chemical overhaul in Singapore",
+    "summary": "A chemical overhaul for aircons in Singapore homes and offices: the fan coil taken down, dismantled, and every part soaked and cleaned before it goes back up, arranged through a partner aircon firm.",
+    "intro": [
+      "A chemical overhaul is the most thorough clean an aircon gets. The fan coil is taken off the wall and stripped down to its parts, and the coil, blower, drain tray and casing are soaked in a cleaning solution, scrubbed and rinsed before the unit is rebuilt and remounted.",
+      "It’s more work than a chemical wash and takes longer, so it’s usually kept for units in a bad state. Tell us which units you’re thinking of and why, and we’ll pass it to a partner aircon firm, which confirms whether an overhaul is what the unit needs and gives you a quick quote."
+    ],
+    "included": [
+      {
+        "name": "Unit taken down",
+        "body": "The fan coil is disconnected and lifted off its mounting plate, with the refrigerant pipes and drainage protected while it’s off the wall."
+      },
+      {
+        "name": "Dismantled into parts",
+        "body": "Casing, louvres, blower wheel, motor cover, drain tray and the coil itself are separated, so nothing is cleaned only from the front."
+      },
+      {
+        "name": "Parts soaked and scrubbed",
+        "body": "Each part is soaked in a cleaning solution, usually in a tub set up in the bathroom or service yard, then scrubbed to lift mould and grime from places a wash can’t reach."
+      },
+      {
+        "name": "Rinsed and dried",
+        "body": "Parts are rinsed thoroughly and left to dry, so no solution or water goes back inside the unit."
+      },
+      {
+        "name": "Rebuilt and remounted",
+        "body": "The unit is reassembled, hung back on its mounting, reconnected and its drainage checked for a proper fall to the outlet."
+      },
+      {
+        "name": "Tested",
+        "body": "The unit is run while the technician checks cooling, airflow, noise and drainage, and you’re shown it working before they leave."
+      }
+    ],
+    "includedNote": "Most overhauls cover the indoor fan coil. Ask whether the outdoor unit is cleaned too, and whether a gas check is included or priced separately.",
+    "bookWhen": [
+      "A unit is mouldy inside, or a chemical wash hasn’t cleared the smell or the dirt.",
+      "Black slime keeps coming back in the drain tray or on the blower.",
+      "A unit hasn’t been serviced for years, or a home has stood empty for a long time.",
+      "You’re keeping an older unit going rather than replacing it, and want it cleaned to its parts."
+    ],
+    "guideLine": "The difference between a chemical wash and an overhaul, and when the extra work is worth it, is set out in {guide}, a sister guide run by the same team.",
+    "priceFactors": [
+      "How many units need an overhaul. Each one is a substantial job on its own.",
+      "The type of unit. Ceiling cassettes and ducted units are a bigger job to take down and strip than wall-mounted fan coils.",
+      "The unit’s condition, including seized screws, brittle plastic or parts that need replacing.",
+      "Whether the outdoor unit is cleaned and whether a gas check or top-up is part of the job.",
+      "Access to the unit and to water and a drain where the parts can be soaked."
+    ],
+    "compareNote": "Ask whether the outdoor unit and a gas check are included, what happens if an old part breaks while the unit is apart, and how long the firm expects each unit to take.",
+    "prepare": [
+      "Clear a generous space around and under each unit, since it will be lifted down and carried.",
+      "Free up a bathroom or service yard where the parts can be soaked, and move toiletries and laundry out of the way.",
+      "Tell the firm about any unit that’s very old, has been repaired before, or has a cracked casing.",
+      "Plan to be without that room’s aircon for most of the visit."
+    ],
+    "onTheDay": [
+      "The technician isolates the unit, then takes it down and lays out the parts on a sheet.",
+      "Parts are soaked, scrubbed and rinsed while the next unit is taken down, if there’s more than one.",
+      "Each unit is rebuilt and remounted once its parts are dry.",
+      "Every unit is run and checked, and you’re shown each one cooling and draining before the technician leaves."
+    ],
+    "afterwards": "Run the unit for a while and check that it drains without dripping, since the drainage has been disconnected and reconnected. A faint smell of the cleaning solution can last briefly. Keep the service report, and raise anything that isn’t right with the firm first.",
+    "premises": {
+      "hdb": "In an HDB flat the overhaul usually happens in the bathroom or service yard, where the parts can be soaked and drained. The outdoor compressor on the aircon ledge stays where it is; ask the firm whether it’s cleaned as part of the job.",
+      "condo": "Condos often have rules about contractor registration and working hours, and some ask that no work spills into the corridor. Overhauling a ceiling cassette is a bigger job than a wall unit, so mention any cassettes in the form.",
+      "landed": "In a landed home the parts can often be soaked outdoors, in a yard or by the back door, which makes the job easier. Mention units on upper floors or with long drainage runs.",
+      "office": "Offices usually book overhauls for a weekend or after hours, since the unit is down for most of the visit. Ceiling cassettes and ducted units may need building management’s approval and access to the ceiling space."
+    },
+    "faqs": [
+      {
+        "q": "How long does a chemical overhaul take?",
+        "a": "Allow a few hours per unit, because it’s taken down, stripped, soaked, dried and rebuilt. The firm will estimate the time once it knows the number and type of units."
+      },
+      {
+        "q": "Is the unit taken away?",
+        "a": "Usually not. Most overhauls are done on site, with the parts soaked in a bathroom, service yard or outdoor area. Ask the firm if you’d rather it worked somewhere specific."
+      },
+      {
+        "q": "Can an old unit be damaged by an overhaul?",
+        "a": "Old plastic can be brittle and old screws can seize, so a firm may warn you before taking an old unit apart. Ask what happens if a part breaks, and get any replacement priced before it’s fitted."
+      },
+      {
+        "q": "Does every unit in the home need an overhaul?",
+        "a": "Rarely. It’s usually one or two units in the worst state, with a general service or chemical wash for the rest. Describe each unit in the form and the firm will suggest what each needs."
+      }
+    ],
+    "illoAlt": "The parts of a dismantled aircon fan coil laid out on a sheet, with the cooling coil soaking in a tub of cleaning solution"
+  },
+  {
+    "slug": "aircon-gas-top-up",
+    "name": "Gas top-up",
+    "serviceName": "Aircon gas top-up",
+    "metaTitle": "Aircon Gas Top-Up Singapore | Pressure Check & Leaks",
+    "metaDescription": "Aircon gas top-up in Singapore: pressure checked, leaks looked for, and refrigerant added to the right level. What's included, and a quick quote.",
+    "h1": "Aircon gas top-up in Singapore",
+    "summary": "Refrigerant pressure checks, leak checks and gas top-ups for aircons in Singapore homes and offices, arranged through a partner aircon firm.",
+    "intro": [
+      "An aircon’s refrigerant, the gas, circulates in a sealed loop between the indoor and outdoor units. If there’s too little of it, the unit runs but cools poorly. A gas top-up visit measures the pressure, looks for where the gas has gone, and adds refrigerant to the right level.",
+      "Tell us which units are cooling poorly and what you’ve noticed, and we’ll pass it to a partner aircon firm, which checks the system, tells you what it finds and quotes before adding anything. A good visit checks for a leak first, because a top-up alone only buys time if the gas is escaping."
+    ],
+    "included": [
+      {
+        "name": "Pressure measured",
+        "body": "Gauges are connected to the service port on the outdoor unit to read the refrigerant pressure while the system runs."
+      },
+      {
+        "name": "Cooling checked",
+        "body": "The technician measures the temperature of the air coming out of the indoor unit and looks at the coil and pipes, since dirt and airflow problems can look like low gas."
+      },
+      {
+        "name": "Leak looked for",
+        "body": "Joints, flare nuts, valves and visible pipework are checked, often with a leak detector or soapy water, and any oily stain that marks an escaping refrigerant is pointed out."
+      },
+      {
+        "name": "Refrigerant added",
+        "body": "If the system is short, the right refrigerant for the unit, shown on its label, is added in measured amounts until the pressure and cooling are where they should be."
+      },
+      {
+        "name": "Result explained",
+        "body": "You’re told what the pressure was, what was added, whether a leak was found, and what the firm would recommend if one was."
+      }
+    ],
+    "includedNote": "Finding and fixing a leak is a repair, priced separately. If the firm finds a leak, ask for the repair price before the top-up, so you aren’t paying for gas that will escape again.",
+    "bookWhen": [
+      "A unit blows air that isn’t cold, even though the filters are clean and it has been serviced.",
+      "Ice or frost forms on the pipes or on the outdoor unit.",
+      "A unit has been moved, reinstalled or repaired, and the firm needs to check the charge.",
+      "A previous technician said the gas was low, and you want it checked properly."
+    ],
+    "guideLine": "Why gas isn’t normally used up, and why a top-up is rarely the whole answer, is explained in {guide}, a sister guide run by the same team.",
+    "priceFactors": [
+      "Which refrigerant the system uses, since some cost more than others. It’s on the label on the outdoor unit.",
+      "How much refrigerant is needed to bring the system back to its proper level.",
+      "Whether there’s a leak to find and repair, which is priced separately.",
+      "How many systems need checking. In a multi-split system, one outdoor unit serves several fan coils.",
+      "How easy the outdoor unit is to reach, on a ledge, roof or high bracket."
+    ],
+    "compareNote": "Ask whether the price includes a leak check, how the refrigerant is charged, and what the repair would cost if a leak is found, so a top-up isn’t paid for twice.",
+    "prepare": [
+      "Note which units cool poorly, and whether they share an outdoor unit.",
+      "Clean or check the filters first, if you can, since clogged filters cause weak cooling too.",
+      "Make sure the outdoor unit can be reached, and clear the aircon ledge or the area around it.",
+      "Find any paperwork from the last service or repair, especially if gas was added before."
+    ],
+    "onTheDay": [
+      "The technician runs the system and connects gauges to the outdoor unit.",
+      "Pressure and cooling are checked, and pipes and joints are looked over for leaks.",
+      "If gas is needed, you’re told the price and whether a leak was found before refrigerant is added.",
+      "The system is run again and the pressure and cooling are rechecked before the gauges come off."
+    ],
+    "afterwards": "Notice how well the unit cools over the following weeks. If it weakens again soon, the gas is probably leaking, and the leak needs finding and fixing rather than another top-up. Keep the report showing what was added.",
+    "premises": {
+      "hdb": "Most HDB flats have a multi-split system, so one outdoor unit on the aircon ledge serves several rooms. If every room cools poorly at once, the shared outdoor unit is usually where to look; if one room does, it may be that fan coil’s pipe joints.",
+      "condo": "Condo outdoor units are usually on a ledge or in a service area. Check whether management needs to approve access, and tell the firm if the units share an outdoor unit.",
+      "landed": "Landed homes often have several separate systems, with outdoor units on the roof or high on a wall. Tell the firm which rooms are affected and where their outdoor units are.",
+      "office": "Office systems vary from wall units on a single outdoor unit to larger ducted systems. Tell the firm the type of system and who manages the outdoor units, since access may go through building management."
+    },
+    "faqs": [
+      {
+        "q": "How do I know if my aircon needs gas?",
+        "a": "You can’t tell for sure without gauges. Weak cooling has several causes, including dirty filters and coils. The firm checks the pressure before adding anything."
+      },
+      {
+        "q": "How long does a gas top-up take?",
+        "a": "The check and top-up for one system usually takes under an hour. Finding a leak can take longer, and repairing it is a separate job."
+      },
+      {
+        "q": "Can the wrong gas be added?",
+        "a": "Each system is designed for one refrigerant, named on the label on its outdoor unit, and that is what should be added. Ask the technician to confirm it before they start."
+      },
+      {
+        "q": "Who can handle R32 units?",
+        "a": "NEA says that, to meet SCDF’s requirements, technicians handling R32 aircons should have completed ITE’s refrigerant handling course. You can ask the firm whether the technician has, before work starts."
+      }
+    ],
+    "illoAlt": "An outdoor aircon unit on a ledge with pressure gauges connected to its service valve, and a refrigerant cylinder beside it"
+  },
+  {
+    "slug": "aircon-repair",
+    "name": "Repair",
+    "serviceName": "Aircon repair",
+    "metaTitle": "Aircon Repair Singapore | Leaking, Not Cold, Not On",
+    "metaDescription": "Aircon repair in Singapore for units that leak, won't cool, won't start or make noise. The firm finds the fault and quotes before any repair is done.",
+    "h1": "Aircon repair in Singapore",
+    "summary": "Fault finding and repairs for aircons in Singapore homes and offices, from leaks and weak cooling to units that won’t start, arranged through a partner aircon firm.",
+    "intro": [
+      "When an aircon stops working properly, the first job is finding out why. A repair visit starts with a diagnosis: the technician checks the unit, the power, the drainage and the outdoor unit, finds the fault, and tells you what it will take to fix before doing any work.",
+      "Tell us what the unit is doing, its make and roughly how old it is, and we’ll pass it to a partner aircon firm, which arranges a visit and quotes for the repair. If a fix isn’t worth it, a good firm will say so."
+    ],
+    "included": [
+      {
+        "name": "Diagnosis",
+        "body": "The technician runs the unit, reads any error code, checks the power supply and controls, and looks at both the indoor and outdoor units to find the fault."
+      },
+      {
+        "name": "A quote before work",
+        "body": "You’re told what the fault is, what part or work it needs, and the price, before anything is replaced. You decide whether to go ahead."
+      },
+      {
+        "name": "The repair",
+        "body": "Common repairs include clearing or replacing a drainage pipe, replacing a capacitor, fan motor, sensor or control board, fixing a refrigerant leak, and replacing a faulty valve."
+      },
+      {
+        "name": "Tested afterwards",
+        "body": "The unit is run after the repair to check it cools, drains and runs quietly, and you’re told about anything else the technician noticed."
+      }
+    ],
+    "includedNote": "Most firms charge for the diagnosis visit, and some take it off the repair price if you go ahead. Ask how the visit is charged when the firm quotes.",
+    "bookWhen": [
+      "Water is leaking from the indoor unit and a service hasn’t stopped it.",
+      "A unit runs but blows warm air, or doesn’t cool the room.",
+      "A unit won’t turn on, cuts out, or flashes an error code.",
+      "The indoor or outdoor unit has started rattling, buzzing or grinding."
+    ],
+    "guideLine": "What the common symptoms usually point to is covered in {guide}, a sister guide run by the same team.",
+    "priceFactors": [
+      "What the fault is, and whether it needs a part or only labour.",
+      "The part itself. Control boards and compressors cost far more than capacitors or sensors.",
+      "The make, model and age of the unit, which decide whether parts are still available.",
+      "Whether a refrigerant leak has to be found and fixed, and the system recharged afterwards.",
+      "Access to the indoor and outdoor units, especially on roofs, high brackets or in ceilings."
+    ],
+    "compareNote": "Ask how the diagnosis visit is charged, whether the part is new and what warranty comes with the repair, and whether replacing the unit would be better value.",
+    "prepare": [
+      "Note exactly what the unit is doing, and when it started. Write down any error code shown on the display.",
+      "Find the make and model, on a sticker on the side of the indoor unit or on the outdoor unit.",
+      "Find any warranty paperwork, since a unit under warranty may need to go back to the manufacturer.",
+      "Clear the space under the unit and make the outdoor unit reachable."
+    ],
+    "onTheDay": [
+      "The technician asks what’s been happening, then runs and inspects the unit.",
+      "Once they’ve found the fault, they explain it and give you a price for the repair.",
+      "If you agree, they carry out the repair, or arrange a second visit if a part has to be ordered.",
+      "The unit is tested, and you’re shown it working before the technician leaves."
+    ],
+    "afterwards": "Use the unit normally and check the fault doesn’t return. Keep the receipt, and ask the firm whether its repair carries a warranty and for how long. If the same fault comes back, contact the firm that did the repair first.",
+    "premises": {
+      "hdb": "In an HDB flat, a fault on the shared outdoor unit of a multi-split system can stop every room cooling at once, while a fault in one room usually points to that fan coil. Tell the firm whether one room or all of them are affected.",
+      "condo": "Condo repairs may need management’s approval if the work involves a shared service area or drilling. Check the rules on contractor registration and working hours before the visit.",
+      "landed": "Landed homes often have several systems and longer pipe runs between floors, which can make leaks harder to trace. Say which systems have the fault and how their outdoor units are reached.",
+      "office": "Office units may be ceiling cassettes or ducted systems, sometimes maintained by the building. Check whether the unit belongs to you or to the landlord before booking, and whether building management must approve the repair."
+    },
+    "faqs": [
+      {
+        "q": "Is it worth repairing an old aircon?",
+        "a": "It depends on the fault and the unit. A capacitor or drainage fix is usually worth doing on any unit; a failed compressor on an old unit often isn’t. Ask the firm for the repair price and its honest view."
+      },
+      {
+        "q": "Can the fault be fixed on the first visit?",
+        "a": "Often, for drainage problems and common parts the technician carries. Control boards and less common parts may need ordering, which means a second visit."
+      },
+      {
+        "q": "My aircon is under warranty. Should I book a repair?",
+        "a": "Check the warranty first. A repair by someone other than the manufacturer’s authorised service centre can void it. Mention the warranty in the form and we’ll tell you if a partner firm can help."
+      },
+      {
+        "q": "Does the repair include a service?",
+        "a": "Not usually. If the unit is dirty, the firm may suggest servicing it on the same visit, which is often cheaper than booking it separately. Ask for both prices."
+      }
+    ],
+    "illoAlt": "A technician kneels by an outdoor aircon unit with its side panel open, checking it with a multimeter beside an open toolbox"
+  }
+]

@@ -1,0 +1,150 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Section from '../components/Section.astro';
+import FaqList from '../components/FaqList.astro';
+import R32Note from '../components/R32Note.astro';
+import CtaBand from '../components/CtaBand.astro';
+
+import { company } from '../lib/data';
+import { urls } from '../lib/urls';
+import { meta } from '../lib/seo';
+
+const path = urls.howItWorks();
+const { title, description } = meta(
+  'How AirconToCool Works | Aircon Services Singapore',
+  'How an AirconToCool enquiry works: what we do, what the partner aircon firm does, how you get a quick quote, and what happens next. No obligation to book.',
+);
+
+const steps = [
+  {
+    illo: 'step-enquiry',
+    alt: 'A phone showing a short enquiry form, with a snowflake beside it',
+    title: 'You send an enquiry',
+    body: 'Through the form on any page: the service, how many indoor units and what type, the property, the area, when you need it, and a phone or WhatsApp number. Add anything else that helps, such as what a unit is doing or when it was last serviced.',
+  },
+  {
+    illo: 'step-team',
+    alt: 'A computer on a desk and an envelope being passed on',
+    title: 'We read it and pass it on',
+    body: `The team behind ${company.parentBrand} reads every enquiry, usually within one working day, and passes it to a partner aircon firm that handles that service and that kind of property. If something is unclear, we may contact you first.`,
+  },
+  {
+    illo: 'step-quote',
+    alt: 'A quote on a clipboard with a tick beside it',
+    title: 'The firm gives you a quick quote',
+    body: 'The firm gets in touch to confirm the units and the job, and gives you its price. Servicing and washes can usually be priced from the number and type of units; a repair is priced once the fault is found.',
+  },
+  {
+    illo: 'step-cool',
+    alt: 'A wall aircon blowing cool air, with a tick beside it',
+    title: 'You decide',
+    body: 'There’s no obligation to go ahead. If you do, you book with the firm, and it does the work at a time that suits you.',
+  },
+] as const;
+
+const faqs = [
+  {
+    q: 'Who does the work?',
+    a: `An independent partner aircon firm. ${company.tradingName} is a matching service: we don’t send anyone to your home or office ourselves.`,
+  },
+  {
+    q: 'Why don’t you show prices?',
+    a: 'Because the price depends on the service, how many units there are, what type they are and how easy they are to reach. The partner firm gives you a quick quote once it knows those, rather than us publishing figures that might not match your job.',
+  },
+  {
+    q: 'What if I’m not happy with the work?',
+    a: 'Tell the firm first, since it did the work and is best placed to put it right.',
+  },
+  {
+    q: 'Do you install new aircons?',
+    a: 'Not through this site at the moment. It covers servicing, chemical washes, chemical overhauls, gas top-ups and repairs.',
+  },
+  {
+    q: 'What happens to my details?',
+    a: `They go to the team behind ${company.parentBrand}, which passes them to the partner firm that will quote you. They’re used only for your enquiry and aren’t sold. The privacy policy has the details.`,
+  },
+];
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  path={path}
+  crumbs={[{ name: 'How it works', path }]}
+>
+  <section class="border-b border-line bg-surface">
+    <div class="wrap grid gap-8 py-12 sm:py-16 lg:grid-cols-[1.4fr_1fr] lg:items-center">
+      <div>
+        <h1 class="max-w-3xl text-3xl font-semibold sm:text-4xl lg:text-5xl">How it works</h1>
+        <p class="mt-5 max-w-2xl text-lg leading-relaxed text-ink-muted">
+          {company.tradingName} is a matching service. You tell us about the aircon job, and
+          we pass it to a partner aircon firm, which quotes and does the work.
+        </p>
+      </div>
+      <img
+        src="/illo/about.svg"
+        alt="An enquiry on a computer at a desk is passed, as an envelope, to an aircon technician standing by an outdoor unit with a toolbox"
+        width="480"
+        height="300"
+        fetchpriority="high"
+        decoding="async"
+        class="mx-auto h-auto w-full max-w-md"
+      />
+    </div>
+  </section>
+
+  <Section narrow>
+    <ol class="space-y-10">
+      {steps.map((s, i) => (
+        <li class="grid gap-5 sm:grid-cols-[10rem_1fr] sm:items-center">
+          <div class="relative rounded-card border border-line bg-surface p-2">
+            <img src={`/illo/${s.illo}.svg`} alt={s.alt} width="200" height="150" loading="lazy" decoding="async" class="mx-auto h-28 w-auto" />
+            <span class="absolute -left-2 -top-2 flex size-8 items-center justify-center rounded-full bg-brand text-sm font-semibold text-white">{i + 1}</span>
+          </div>
+          <div>
+            <h2 class="text-xl font-semibold">{s.title}</h2>
+            <p class="mt-2 leading-relaxed text-ink-muted">{s.body}</p>
+          </div>
+        </li>
+      ))}
+    </ol>
+  </Section>
+
+  <Section tone="sunk">
+    <div class="grid gap-8 lg:grid-cols-2">
+      <div class="rounded-card border border-line bg-surface p-6">
+        <h2 class="text-lg font-semibold">What we do</h2>
+        <ul class="mt-4 space-y-2 text-sm leading-relaxed text-ink-muted">
+          <li>Read your enquiry and check we understand the job.</li>
+          <li>Pass it to a partner firm that handles that service and property.</li>
+        </ul>
+      </div>
+      <div class="rounded-card border border-line bg-surface p-6">
+        <h2 class="text-lg font-semibold">What the partner firm does</h2>
+        <ul class="mt-4 space-y-2 text-sm leading-relaxed text-ink-muted">
+          <li>Contacts you to confirm the units and the job.</li>
+          <li>Gives you a quick quote, or diagnoses a fault and prices the repair.</li>
+          <li>Does the servicing, wash, overhaul, gas top-up or repair.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="mt-8 max-w-3xl">
+      <R32Note />
+    </div>
+  </Section>
+
+  <Section narrow>
+    <h2 class="text-2xl font-semibold sm:text-3xl">Questions</h2>
+    <div class="mt-8">
+      <FaqList faqs={faqs} />
+    </div>
+    <p class="mt-8 text-ink-muted">
+      Start with the service:
+      <a href={urls.service('aircon-servicing')} class="text-brand underline underline-offset-2">aircon servicing</a>,
+      <a href={urls.service('aircon-chemical-wash')} class="text-brand underline underline-offset-2">chemical wash</a> or
+      <a href={urls.service('aircon-repair')} class="text-brand underline underline-offset-2">repair</a>.
+    </p>
+  </Section>
+
+  <CtaBand heading="Ready to get it sorted?" body="Send one enquiry and a partner aircon firm will be in touch with a quote." />
+</BaseLayout>

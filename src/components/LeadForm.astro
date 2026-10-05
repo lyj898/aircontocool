@@ -1,0 +1,260 @@
+---
+/**
+ * Enquiry form. AJAX POST to FormSubmit, like PestToClear's.
+ *
+ * Family enquiry standard (jtc-family/PORTFOLIO.md):
+ * - The subject carries the site and the page ("AirconToCool – Chemical wash")
+ *   so enquiries can be counted per site and per page from the inbox.
+ * - `generate_lead` fires once, only after FormSubmit confirms delivery.
+ * - The PDPA notice says the details go to the team behind Junk to Clear.
+ * - If sending fails, the visitor is told, everything they typed stays in the
+ *   form, and no phone number or email address is offered instead.
+ *
+ * The endpoint comes from PUBLIC_FORM_ENDPOINT (src/lib/contact.ts).
+ * One form per page: the script looks the form up by data attribute.
+ */
+import { FORM_ENDPOINT, formSubject } from '../lib/contact';
+import { company, services } from '../lib/data';
+import { urls } from '../lib/urls';
+
+interface Props {
+  /** Page name for the email subject. */
+  pageName: string;
+  /** Service slug to preselect, on a service page. */
+  service?: string;
+}
+
+const { pageName, service = '' } = Astro.props;
+const subject = formSubject(pageName);
+
+const serviceOptions = [
+  ...services.map((s) => ({ value: s.name, slug: s.slug })),
+  { value: 'Not sure / more than one', slug: 'other' },
+];
+const unitOptions = ['1', '2', '3', '4', '5 to 8', 'More than 8'];
+const unitTypeOptions = ['Wall-mounted', 'Ceiling cassette', 'Ducted', 'A mix', 'Not sure'];
+const propertyOptions = ['HDB flat', 'Condo', 'Landed house', 'Office', 'Shop or other premises'];
+const timingOptions = ['As soon as possible', 'Within a week', 'Within a month', 'Just comparing for now'];
+
+const field =
+  'mt-1.5 w-full rounded-lg border border-line-strong bg-surface px-3.5 py-2.5 text-base text-ink placeholder:text-ink-faint focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/25';
+const label = 'block text-sm font-medium text-ink';
+const optional = 'font-normal text-ink-faint';
+---
+
+<div data-lead-region>
+<form data-lead-form novalidate class="space-y-5">
+  <div class="grid gap-5 sm:grid-cols-2">
+    <div>
+      <label class={label} for="lf-service">What do you need?</label>
+      <select id="lf-service" name="Service" class={field} required>
+        <option value="" selected={!service}>Choose one</option>
+        {serviceOptions.map((o) => <option value={o.value} selected={o.slug === service}>{o.value}</option>)}
+      </select>
+    </div>
+    <div>
+      <label class={label} for="lf-property">Property type</label>
+      <select id="lf-property" name="Property" class={field} required>
+        <option value="" selected>Choose one</option>
+        {propertyOptions.map((o) => <option value={o}>{o}</option>)}
+      </select>
+    </div>
+  </div>
+
+  <div class="grid gap-5 sm:grid-cols-2">
+    <div>
+      <label class={label} for="lf-units">How many indoor units?</label>
+      <select id="lf-units" name="Units" class={field} required>
+        <option value="" selected>Choose one</option>
+        {unitOptions.map((o) => <option value={o}>{o}</option>)}
+      </select>
+    </div>
+    <div>
+      <label class={label} for="lf-unit-type">Type of unit</label>
+      <select id="lf-unit-type" name="Unit type" class={field}>
+        {unitTypeOptions.map((o) => <option value={o}>{o}</option>)}
+      </select>
+    </div>
+  </div>
+
+  <div class="grid gap-5 sm:grid-cols-2">
+    <div>
+      <label class={label} for="lf-area">Area <span class={optional}>(town or estate)</span></label>
+      <input id="lf-area" name="Area" type="text" class={field} autocomplete="address-level2" placeholder="e.g. Tampines" />
+    </div>
+    <div>
+      <label class={label} for="lf-timing">When do you need it?</label>
+      <select id="lf-timing" name="Timing" class={field}>
+        {timingOptions.map((o) => <option value={o}>{o}</option>)}
+      </select>
+    </div>
+  </div>
+
+  <div class="grid gap-5 sm:grid-cols-2">
+    <div>
+      <label class={label} for="lf-name">Your name</label>
+      <input id="lf-name" name="Name" type="text" class={field} autocomplete="name" required />
+    </div>
+    <div>
+      <label class={label} for="lf-phone">Phone or WhatsApp</label>
+      <input id="lf-phone" name="Phone" type="tel" inputmode="tel" class={field} autocomplete="tel" placeholder="e.g. 8123 4567" required />
+    </div>
+  </div>
+
+  <div>
+    <label class={label} for="lf-details">Anything else? <span class={optional}>(optional)</span></label>
+    <textarea
+      id="lf-details"
+      name="Details"
+      rows="3"
+      class={field}
+      placeholder="What the unit is doing, its make, or when it was last serviced."
+    ></textarea>
+  </div>
+
+  {/* Honeypot. Real people never fill this in; bots usually do. */}
+  <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px" />
+
+  <button
+    type="submit"
+    data-lead-submit
+    class="w-full rounded-lg bg-brand px-6 py-4 text-base font-semibold text-white transition-colors hover:bg-brand-dark disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
+  >
+    Ask for a quote
+  </button>
+
+  <p data-lead-status role="status" aria-live="polite" class="hidden text-sm font-medium"></p>
+
+  <p class="text-xs leading-relaxed text-ink-faint">
+    Your details go to the team behind {company.parentBrand}, which passes them to the
+    partner aircon firm that will quote you. They are used only for this enquiry
+    and are not sold. See the
+    <a href={urls.privacy()} class="underline underline-offset-2">privacy policy</a>.
+  </p>
+</form>
+
+<div data-lead-success hidden class="rounded-card border border-brand/30 bg-brand-light/60 p-6 sm:p-8">
+  <h2 class="text-xl font-semibold text-ink sm:text-2xl">Thank you. Your enquiry is on its way.</h2>
+  <p class="mt-3 leading-relaxed text-ink-muted">
+    We usually reply within one working day. We'll pass your enquiry to a partner
+    aircon firm, which will contact you to confirm the job and give you a quote.
+  </p>
+  <p class="mt-3 leading-relaxed text-ink-muted">
+    There's nothing else you need to do. If you left something out, send another enquiry.
+  </p>
+  <button
+    type="button"
+    data-lead-again
+    class="mt-6 rounded-lg bg-surface px-5 py-2.5 text-sm font-semibold text-brand ring-1 ring-line-strong transition-colors hover:bg-brand-light"
+  >
+    Send another enquiry
+  </button>
+</div>
+</div>
+
+<script is:inline define:vars={{ FORM_ENDPOINT, subject }}>
+  (function () {
+    var form = document.querySelector('[data-lead-form]');
+    if (!form) return;
+
+    var status = form.querySelector('[data-lead-status]');
+    var submit = form.querySelector('[data-lead-submit]');
+    var success = document.querySelector('[data-lead-success]');
+    var again = success && success.querySelector('[data-lead-again]');
+
+    function value(name) {
+      var el = form.elements.namedItem(name);
+      return el && 'value' in el ? String(el.value).trim() : '';
+    }
+
+    function show(message, ok) {
+      status.textContent = message;
+      status.classList.remove('hidden');
+      status.style.color = ok ? 'var(--color-positive)' : 'var(--color-warning)';
+    }
+
+    function showSuccess() {
+      form.hidden = true;
+      success.hidden = false;
+      success.setAttribute('tabindex', '-1');
+      success.focus({ preventScroll: true });
+      success.scrollIntoView({ block: 'center', behavior: 'smooth' });
+    }
+
+    if (again) {
+      again.addEventListener('click', function () {
+        success.hidden = true;
+        form.hidden = false;
+        form.scrollIntoView({ block: 'start', behavior: 'smooth' });
+      });
+    }
+
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      // Silently "succeed" for bots rather than telling them they were caught.
+      if (value('_honey')) {
+        showSuccess();
+        return;
+      }
+
+      var data = {
+        Service: value('Service'),
+        Property: value('Property'),
+        Units: value('Units'),
+        'Unit type': value('Unit type'),
+        Area: value('Area') || '-',
+        Timing: value('Timing'),
+        Name: value('Name'),
+        Phone: value('Phone'),
+        Details: value('Details') || '-',
+      };
+
+      if (!data.Service || !data.Property || !data.Units || !data.Name || data.Phone.replace(/\D/g, '').length < 8) {
+        show('Please choose the service, property type and number of units, and add your name and a phone number.', false);
+        return;
+      }
+
+      submit.disabled = true;
+      show('Sending…', true);
+
+      data._subject = subject;
+      data.Site = 'AirconToCool';
+      data.Page = window.location.pathname;
+
+      fetch(FORM_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify(data),
+      })
+        .then(function (res) {
+          if (!res.ok) throw new Error('HTTP ' + res.status);
+          return res.json();
+        })
+        .then(function (res) {
+          // FormSubmit answers 200 even when it refuses a submission (an
+          // unactivated form returns success: "false"), so check the body.
+          var ok = res && (res.success === true || res.success === 'true');
+          if (!ok) throw new Error((res && res.message) || 'rejected');
+
+          // The site's one key event. Genuine delivery only.
+          if (typeof window.gtag === 'function') {
+            window.gtag('event', 'generate_lead', {
+              page_path: window.location.pathname,
+              service: data.Service,
+              property_type: data.Property,
+            });
+          }
+          form.reset();
+          submit.disabled = false;
+          status.classList.add('hidden');
+          showSuccess();
+        })
+        .catch(function () {
+          // Keep everything they typed, and offer no other contact route.
+          submit.disabled = false;
+          show('Sorry, your enquiry didn’t send. Everything you typed is still here, so please try again in a few minutes.', false);
+        });
+    });
+  })();
+</script>

@@ -1,0 +1,89 @@
+---
+/**
+ * Site header. The mobile menu is a native <details> element: no JS, no
+ * hydration, keyboard accessible. No storage is used.
+ */
+import Wordmark from './Wordmark.astro';
+import { services } from '../lib/data';
+import { urls } from '../lib/urls';
+
+/** Short labels for the desktop nav, where space is tight. */
+const short: Record<string, string> = {
+  'aircon-servicing': 'Servicing',
+  'aircon-chemical-overhaul': 'Overhaul',
+};
+
+const serviceNav = services.map((s) => ({ label: short[s.slug] ?? s.name, full: s.serviceName, href: urls.service(s.slug) }));
+const nav = [
+  ...serviceNav,
+  { label: 'How it works', href: urls.howItWorks() },
+];
+const mobileNav = [
+  { label: 'How it works', href: urls.howItWorks() },
+  { label: 'About', href: urls.about() },
+];
+---
+
+<header class="sticky top-0 z-40 border-b border-line bg-canvas/95 backdrop-blur-sm">
+  <div class="wrap flex h-16 items-center justify-between gap-4">
+    <a href={urls.home()} class="no-underline" aria-label="AirconToCool home">
+      <Wordmark />
+    </a>
+
+    <nav aria-label="Primary" class="hidden items-center gap-5 lg:flex xl:gap-7">
+      {nav.map((item) => (
+        <a href={item.href} class="text-sm font-medium text-ink-muted no-underline transition-colors hover:text-brand">
+          {item.label}
+        </a>
+      ))}
+    </nav>
+
+    <div class="hidden lg:block">
+      <a
+        href={urls.contact()}
+        class="rounded-lg bg-brand px-4 py-2 text-sm font-semibold text-white no-underline transition-colors hover:bg-brand-dark"
+      >
+        Get a quote
+      </a>
+    </div>
+
+    <details class="lg:hidden [&[open]_.i-open]:hidden [&[open]_.i-close]:block">
+      <summary
+        class="flex h-10 w-10 cursor-pointer list-none items-center justify-center rounded-lg ring-1 ring-line-strong [&::-webkit-details-marker]:hidden"
+        aria-label="Toggle navigation menu"
+      >
+        <svg class="i-open" width="20" height="20" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round">
+          <path d="M3 6h14M3 10h14M3 14h14" />
+        </svg>
+        <svg class="i-close hidden" width="20" height="20" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round">
+          <path d="M5 5l10 10M15 5L5 15" />
+        </svg>
+      </summary>
+
+      <nav aria-label="Mobile" class="absolute inset-x-0 top-16 max-h-[calc(100vh-4rem)] overflow-y-auto border-b border-line bg-canvas shadow-sm">
+        <ul class="wrap flex flex-col py-2">
+          {mobileNav.map((item) => (
+            <li class="border-b border-line">
+              <a href={item.href} class="block py-3.5 font-medium text-ink no-underline">{item.label}</a>
+            </li>
+          ))}
+          <li class="border-b border-line py-3">
+            <p class="text-xs font-semibold uppercase tracking-wide text-ink-faint">Services</p>
+            <ul class="mt-2 grid grid-cols-2 gap-x-4">
+              {serviceNav.map((s) => (
+                <li>
+                  <a href={s.href} class="block py-2 text-ink-muted no-underline">{s.full}</a>
+                </li>
+              ))}
+            </ul>
+          </li>
+          <li class="py-3">
+            <a href={urls.contact()} class="block rounded-lg bg-brand px-4 py-3 text-center font-semibold text-white no-underline">
+              Get a quote
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </details>
+  </div>
+</header>

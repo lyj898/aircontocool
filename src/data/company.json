@@ -1,0 +1,25 @@
+{
+  "entityName": "SKAP Waste Management Pte Ltd",
+  "tradingName": "AirconToCool",
+  "parentBrand": "Junk to Clear",
+  "parentBrandUrl": "https://junktoclear.com.sg",
+  "yearEstablished": 2009,
+  "siteUrl": "https://aircontocool.com",
+  "operatingHoursDisplay": "Mon-Fri 9am-6pm, Sat 9am-1pm. Closed Sunday and public holidays.",
+  "businessModelStatement": "AirconToCool is a matching service run by the team behind Junk to Clear. We pass your enquiry to a partner aircon firm, which quotes and does the work.",
+  "formSubmit": {
+    "defaultEndpoint": "https://formsubmit.co/ajax/lyj898@gmail.com",
+    "subjectPrefix": "AirconToCool – ",
+    "note": "The build uses PUBLIC_FORM_ENDPOINT when it is set (a repo variable in CI) and this raw address otherwise. Switch to FormSubmit's alias by setting the variable once the user confirms it; no code change is needed. FormSubmit may ask for a fresh activation the first time a new site posts to it."
+  },
+  "guide": {
+    "url": "https://ourkampung.com/repairs-and-upkeep/aircon-servicing-guide/",
+    "title": "Aircon servicing in Singapore: how often, and what a chemical wash actually is",
+    "site": "OurKampung"
+  },
+  "r32": {
+    "neaUrl": "https://www.nea.gov.sg/our-services/climate-change-energy-efficiency/climate-change/reducing-ghg-emissions-from-the-use-of-refrigerants-in-rac-sector",
+    "iteUrl": "https://www.ite.edu.sg/course-finder/coc-in-residential-air-conditioning-system-refrigerant/",
+    "checked": "5 Oct 2026"
+  }
+}

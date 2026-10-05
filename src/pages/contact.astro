@@ -1,0 +1,76 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import LeadForm from '../components/LeadForm.astro';
+import { company } from '../lib/data';
+import { urls } from '../lib/urls';
+import { meta } from '../lib/seo';
+
+const path = urls.contact();
+const { title, description } = meta(
+  'Contact AirconToCool | Get an Aircon Quote',
+  'Ask for an aircon servicing or repair quote in Singapore. Tell us the service, the units and the area, and a partner aircon firm will contact you.',
+);
+---
+
+<BaseLayout title={title} description={description} path={path} crumbs={[{ name: 'Contact', path }]} ctaHref="#main">
+  <section class="border-b border-line bg-surface">
+    <div class="wrap grid gap-8 py-12 sm:py-16 lg:grid-cols-[1.4fr_1fr] lg:items-center">
+      <div>
+        <h1 class="max-w-3xl text-3xl font-semibold sm:text-4xl lg:text-5xl">Get a quick aircon quote</h1>
+        <p class="mt-5 max-w-2xl text-lg leading-relaxed text-ink-muted">
+          Tell us about the job and we’ll pass it to a partner aircon firm, which will contact
+          you and give you its price. There’s no obligation to book.
+        </p>
+      </div>
+      <img
+        src="/illo/contact.svg"
+        alt="A short enquiry form with a snowflake badge, beside a wall aircon blowing cool air"
+        width="480"
+        height="300"
+        fetchpriority="high"
+        decoding="async"
+        class="mx-auto hidden h-auto w-full max-w-sm sm:block"
+      />
+    </div>
+  </section>
+
+  <div class="wrap grid gap-12 py-12 sm:py-16 lg:grid-cols-[1.5fr_1fr]">
+    <div>
+      <LeadForm pageName="Contact" />
+    </div>
+
+    <aside class="space-y-6">
+      <div class="rounded-card border border-line bg-surface p-6">
+        <h2 class="font-semibold">What helps the firm quote</h2>
+        <ul class="mt-4 space-y-2 text-sm text-ink-muted">
+          <li>How many indoor units, and which rooms they’re in</li>
+          <li>The type: wall-mounted, ceiling cassette or ducted</li>
+          <li>When they were last serviced, if you know</li>
+          <li>For a repair: what the unit is doing, its make and any error code</li>
+        </ul>
+        <p class="mt-4 text-sm leading-relaxed text-ink-muted">
+          Not sure which service you need? Describe what the unit is doing. The
+          <a href={urls.home()} class="text-brand underline underline-offset-2">service pages</a>
+          say what each visit includes.
+        </p>
+      </div>
+
+      <div class="rounded-card border border-line bg-surface p-6">
+        <h2 class="font-semibold">Response time</h2>
+        <p class="mt-2 text-sm leading-relaxed text-ink-muted">
+          We usually reply within one working day.<br />
+          {company.operatingHoursDisplay}
+        </p>
+      </div>
+
+      <div class="rounded-card border border-line bg-surface-sunk p-6">
+        <h2 class="font-semibold">What happens to your details</h2>
+        <p class="mt-2 text-sm leading-relaxed text-ink-muted">
+          They go to the team behind {company.parentBrand}, which passes them to the partner
+          aircon firm that will quote you. They aren’t sold or passed to anyone else.
+          See the <a href={urls.privacy()} class="text-brand underline underline-offset-2">privacy policy</a>.
+        </p>
+      </div>
+    </aside>
+  </div>
+</BaseLayout>

@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="AirconToCool">
+  <rect width="32" height="32" rx="7" fill="#0d5c7d"/>
+  <path d="M16 6.5v19M7.8 11.25l16.4 9.5M7.8 20.75l16.4-9.5" fill="none" stroke="#f6f9fa" stroke-width="2.4" stroke-linecap="round"/>
+  <path d="M13 8.5l3 3 3-3M13 23.5l3-3 3 3" fill="none" stroke="#fde5cf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

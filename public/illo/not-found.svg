@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 300" width="480" height="300">
+<path d="M40 170C28 84 110 30 240 30c128 0 210 50 202 140-8 82-96 108-206 108-104 0-182-30-196-108z" fill="#E2EEF2"/>
+  <ellipse cx="240" cy="262" rx="190" ry="9" fill="#CADCE2"/>
+  <rect x="80" y="50" width="320" height="200" fill="#FBF8F1"/>
+  
+  <g>
+    <rect x="150" y="74" width="180" height="54" rx="15.120000000000001" fill="#F7FAFB"/>
+    <rect x="150" y="107.47999999999999" width="180" height="20.52" rx="10.26" fill="#DCE5E9"/>
+    <rect x="164.4" y="113.96000000000001" width="151.2" height="5.4" rx="2.7" fill="#BCC9CF"/>
+    <circle cx="304.8" cy="90.2" r="3.2399999999999998" fill="#4FA8C7"/>
+    <rect x="150" y="74" width="180" height="54" rx="15.120000000000001" fill="none" stroke="#BCC9CF" stroke-width="1.5"/>
+  </g>
+  
+  <g transform="translate(180 132) scale(1.1)" fill="none" stroke="#86C8DC" stroke-width="4" stroke-linecap="round">
+    <path d="M0 0c10 14 4 26 18 38"/>
+    <path d="M26 0c8 16 0 30 14 44" opacity=".8"/>
+    <path d="M52 0c6 12 -2 24 10 34" opacity=".6"/>
+  </g>
+  <text x="300" y="214" text-anchor="middle" font-family="ui-sans-serif, system-ui, sans-serif" font-size="64" font-weight="700" fill="#86C8DC">?</text>
+  
+  <g transform="translate(110 248) scale(1)">
+    <path d="M0 0c-6-22-20-32-30-34 2 16 14 28 30 34zM0 0c4-26 18-40 32-42-2 20-14 34-32 42zM0 0c0-22-4-38-8-48 10 12 14 30 8 48z" fill="#8FA476"/>
+    <path d="M0 0c-6-14-14-22-22-28M0 0c6-16 14-26 24-34" stroke="#7E9468" stroke-width="2" fill="none"/>
+    <path d="M-16 0h32l-5 26h-22z" fill="#C9764B"/>
+    <rect x="-18" y="-3" width="36" height="7" rx="2" fill="#B5663E"/>
+  </g>
+</svg>

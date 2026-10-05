@@ -1,0 +1,147 @@
+@import 'tailwindcss';
+
+/*
+ * AirconToCool design tokens.
+ *
+ * Same system as PestToClear (system fonts, hairline rules, a tight type
+ * scale) with its own palette: a deep cool blue for the brand, pale ice
+ * surfaces, and a warm sun accent for callouts, the heat the aircon is
+ * fighting. The illustrations in public/illo use the same colours.
+ */
+
+@theme {
+  /* Surfaces. Cool off-white rather than pure white. */
+  --color-canvas: #f6f9fa;
+  --color-surface: #ffffff;
+  --color-surface-sunk: #ebf2f4;
+
+  /* Ink. Near-black with a blue undertone so it sits with the primary. */
+  --color-ink: #0f1b22;
+  --color-ink-muted: #4b5a63;
+  --color-ink-faint: #5a6870;
+
+  /* Primary: deep cool blue. Passes AA on white at normal text sizes. */
+  --color-brand: #0d5c7d;
+  --color-brand-dark: #08425a;
+  --color-brand-light: #e1f0f5;
+
+  /* Accent: warm sun, for callouts only. */
+  --color-sun: #fde5cf;
+  --color-sun-deep: #c2622f;
+
+  --color-line: #dce6ea;
+  --color-line-strong: #c3d1d7;
+
+  --color-positive: #1c6b45;
+  --color-warning: #8a4b12;
+
+  --font-sans:
+    ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+    'Noto Sans', sans-serif;
+
+  /* Deliberately tight scale. Fewer sizes reads as more ordered. */
+  --text-2xs: 0.6875rem;
+
+  --radius-card: 0.625rem;
+
+  --spacing-gutter: 1.25rem;
+}
+
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  body {
+    background-color: var(--color-canvas);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    text-wrap: balance;
+    letter-spacing: -0.021em;
+    line-height: 1.15;
+    font-weight: 600;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  /* Visible, high-contrast focus for keyboard users on every interactive thing. */
+  :focus-visible {
+    outline: 2px solid var(--color-brand);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  /* Anchor targets clear the sticky header. */
+  :target {
+    scroll-margin-top: 5rem;
+  }
+}
+
+@layer components {
+  /* The one horizontal rhythm used site-wide. */
+  .wrap {
+    width: 100%;
+    max-width: 72rem;
+    margin-inline: auto;
+    padding-inline: var(--spacing-gutter);
+  }
+
+  .wrap-narrow {
+    width: 100%;
+    max-width: 46rem;
+    margin-inline: auto;
+    padding-inline: var(--spacing-gutter);
+  }
+
+  /* Long-form copy blocks in service and info pages. */
+  .prose-ac > * + * {
+    margin-top: 1rem;
+  }
+  .prose-ac h2 {
+    margin-top: 2.5rem;
+    font-size: 1.5rem;
+  }
+  .prose-ac h3 {
+    margin-top: 1.75rem;
+    font-size: 1.125rem;
+  }
+  .prose-ac a {
+    color: var(--color-brand);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+}
+
+/*
+ * Sticky mobile CTA bar clearance. The bar is fixed at the bottom on small
+ * screens, so the page needs padding or it covers the footer's last line.
+ */
+@utility pb-sticky-cta {
+  padding-bottom: calc(4.25rem + env(safe-area-inset-bottom));
+}

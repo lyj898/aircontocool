@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 420" width="960" height="420">
+<path d="M20 330C0 170 160 40 470 36c330-4 480 110 470 294z" fill="#E2EEF2"/>
+  <!-- inside wall -->
+  <rect x="40" y="60" width="520" height="300" fill="#FBF8F1"/>
+  <rect x="560" y="40" width="34" height="340" fill="#E0CFA9"/>
+  <rect x="594" y="40" width="20" height="340" fill="#F1E2C4"/>
+  <!-- outside ledge -->
+  <rect x="614" y="300" width="300" height="16" fill="#E0CFA9"/>
+  <rect x="614" y="316" width="300" height="10" fill="#F1E2C4"/>
+  <ellipse cx="480" cy="384" rx="460" ry="26" fill="#E3EBEE"/>
+
+  <!-- indoor unit in section: casing -->
+  <path d="M120 96h330a26 26 0 0 1 26 26v84a26 26 0 0 1-26 26H120a26 26 0 0 1-26-26v-84a26 26 0 0 1 26-26z" fill="#DCE5E9"/>
+  <path d="M128 106h314a20 20 0 0 1 20 20v76a20 20 0 0 1-20 20H128a20 20 0 0 1-20-20v-76a20 20 0 0 1 20-20z" fill="#FFFFFF"/>
+  <!-- (1) filter: a mesh across the intake at the top -->
+  <rect x="140" y="110" width="290" height="10" rx="3" fill="#C3E6F0"/>
+  <rect x="144" y="110" width="2" height="10" fill="#86C8DC"/><rect x="156" y="110" width="2" height="10" fill="#86C8DC"/><rect x="168" y="110" width="2" height="10" fill="#86C8DC"/><rect x="180" y="110" width="2" height="10" fill="#86C8DC"/><rect x="192" y="110" width="2" height="10" fill="#86C8DC"/><rect x="204" y="110" width="2" height="10" fill="#86C8DC"/><rect x="216" y="110" width="2" height="10" fill="#86C8DC"/><rect x="228" y="110" width="2" height="10" fill="#86C8DC"/><rect x="240" y="110" width="2" height="10" fill="#86C8DC"/><rect x="252" y="110" width="2" height="10" fill="#86C8DC"/><rect x="264" y="110" width="2" height="10" fill="#86C8DC"/><rect x="276" y="110" width="2" height="10" fill="#86C8DC"/><rect x="288" y="110" width="2" height="10" fill="#86C8DC"/><rect x="300" y="110" width="2" height="10" fill="#86C8DC"/><rect x="312" y="110" width="2" height="10" fill="#86C8DC"/><rect x="324" y="110" width="2" height="10" fill="#86C8DC"/><rect x="336" y="110" width="2" height="10" fill="#86C8DC"/><rect x="348" y="110" width="2" height="10" fill="#86C8DC"/><rect x="360" y="110" width="2" height="10" fill="#86C8DC"/><rect x="372" y="110" width="2" height="10" fill="#86C8DC"/><rect x="384" y="110" width="2" height="10" fill="#86C8DC"/><rect x="396" y="110" width="2" height="10" fill="#86C8DC"/><rect x="408" y="110" width="2" height="10" fill="#86C8DC"/><rect x="420" y="110" width="2" height="10" fill="#86C8DC"/>
+  <!-- (2) cooling coil: a bent fin block -->
+  <path d="M150 128h270l-30 50H180z" fill="#B9C7A7"/>
+  <path d="M156 128l-4 50" stroke="#93A47F" stroke-width="2"/><path d="M168 128l-3.6 50" stroke="#93A47F" stroke-width="2"/><path d="M180 128l-3.2 50" stroke="#93A47F" stroke-width="2"/><path d="M192 128l-2.8 50" stroke="#93A47F" stroke-width="2"/><path d="M204 128l-2.4 50" stroke="#93A47F" stroke-width="2"/><path d="M216 128l-2 50" stroke="#93A47F" stroke-width="2"/><path d="M228 128l-1.5999999999999996 50" stroke="#93A47F" stroke-width="2"/><path d="M240 128l-1.1999999999999997 50" stroke="#93A47F" stroke-width="2"/><path d="M252 128l-0.7999999999999998 50" stroke="#93A47F" stroke-width="2"/><path d="M264 128l-0.3999999999999999 50" stroke="#93A47F" stroke-width="2"/><path d="M276 128l0 50" stroke="#93A47F" stroke-width="2"/><path d="M288 128l0.40000000000000036 50" stroke="#93A47F" stroke-width="2"/><path d="M300 128l0.8000000000000007 50" stroke="#93A47F" stroke-width="2"/><path d="M312 128l1.2000000000000002 50" stroke="#93A47F" stroke-width="2"/><path d="M324 128l1.6000000000000005 50" stroke="#93A47F" stroke-width="2"/><path d="M336 128l2 50" stroke="#93A47F" stroke-width="2"/><path d="M348 128l2.4000000000000004 50" stroke="#93A47F" stroke-width="2"/><path d="M360 128l2.8000000000000007 50" stroke="#93A47F" stroke-width="2"/><path d="M372 128l3.2 50" stroke="#93A47F" stroke-width="2"/><path d="M384 128l3.6000000000000005 50" stroke="#93A47F" stroke-width="2"/><path d="M396 128l4 50" stroke="#93A47F" stroke-width="2"/><path d="M408 128l4.4 50" stroke="#93A47F" stroke-width="2"/>
+  <!-- (3) blower wheel -->
+  <g transform="translate(285 196)">
+    <circle r="22" fill="#DCE5E9"/>
+    <rect x="-1.4" y="-22" width="2.8" height="10" fill="#BCC9CF" transform="rotate(0)"/><rect x="-1.4" y="-22" width="2.8" height="10" fill="#BCC9CF" transform="rotate(22.5)"/><rect x="-1.4" y="-22" width="2.8" height="10" fill="#BCC9CF" transform="rotate(45)"/><rect x="-1.4" y="-22" width="2.8" height="10" fill="#BCC9CF" transform="rotate(67.5)"/><rect x="-1.4" y="-22" width="2.8" height="10" fill="#BCC9CF" transform="rotate(90)"/><rect x="-1.4" y="-22" width="2.8" height="10" fill="#BCC9CF" transform="rotate(112.5)"/><rect x="-1.4" y="-22" width="2.8" height="10" fill="#BCC9CF" transform="rotate(135)"/><rect x="-1.4" y="-22" width="2.8" height="10" fill="#BCC9CF" transform="rotate(157.5)"/><rect x="-1.4" y="-22" width="2.8" height="10" fill="#BCC9CF" transform="rotate(180)"/><rect x="-1.4" y="-22" width="2.8" height="10" fill="#BCC9CF" transform="rotate(202.5)"/><rect x="-1.4" y="-22" width="2.8" height="10" fill="#BCC9CF" transform="rotate(225)"/><rect x="-1.4" y="-22" width="2.8" height="10" fill="#BCC9CF" transform="rotate(247.5)"/><rect x="-1.4" y="-22" width="2.8" height="10" fill="#BCC9CF" transform="rotate(270)"/><rect x="-1.4" y="-22" width="2.8" height="10" fill="#BCC9CF" transform="rotate(292.5)"/><rect x="-1.4" y="-22" width="2.8" height="10" fill="#BCC9CF" transform="rotate(315)"/><rect x="-1.4" y="-22" width="2.8" height="10" fill="#BCC9CF" transform="rotate(337.5)"/>
+    <circle r="7" fill="#5B6878"/>
+  </g>
+  <!-- (4) drain tray under the coil -->
+  <path d="M168 180h240l-8 12H176z" fill="#4FA8C7"/>
+  <!-- louvre and cool air -->
+  <rect x="210" y="226" width="150" height="8" rx="4" fill="#BCC9CF"/>
+  
+  <g transform="translate(222 244) scale(1.1)" fill="none" stroke="#86C8DC" stroke-width="4" stroke-linecap="round">
+    <path d="M0 0c10 14 4 26 18 38"/>
+    <path d="M26 0c8 16 0 30 14 44" opacity=".8"/>
+    <path d="M52 0c6 12 -2 24 10 34" opacity=".6"/>
+  </g>
+  
+  <g transform="translate(294 244) scale(0.9)" fill="none" stroke="#86C8DC" stroke-width="4" stroke-linecap="round">
+    <path d="M0 0c10 14 4 26 18 38"/>
+    <path d="M26 0c8 16 0 30 14 44" opacity=".8"/>
+    <path d="M52 0c6 12 -2 24 10 34" opacity=".6"/>
+  </g>
+  <!-- (5) drainage pipe out through the wall -->
+  <path d="M408 186h60c18 0 22 8 22 26v120c0 14 10 20 24 20h180" stroke="#5B6878" stroke-width="7" fill="none" stroke-linecap="round"/>
+  <!-- refrigerant pipes, insulated, to the outdoor unit -->
+  <path d="M452 140h120c18 0 26 8 40 26l40 40" stroke="#4FA8C7" stroke-width="10" fill="none" stroke-linecap="round"/>
+  <path d="M452 160h110c18 0 26 8 40 26l40 40" stroke="#E07A5F" stroke-width="10" fill="none" stroke-linecap="round"/>
+
+  <!-- outdoor unit -->
+  <g transform="translate(-6 0)">
+  <g>
+    <rect x="700" y="168" width="180" height="126" rx="5" fill="#F7FAFB"/>
+    <rect x="840.4" y="168" width="39.6" height="126" rx="4" fill="#DCE5E9"/>
+    <rect x="845.8" y="193.2" width="28.8" height="2" fill="#BCC9CF"/><rect x="845.8" y="212.1" width="28.8" height="2" fill="#BCC9CF"/><rect x="845.8" y="231" width="28.8" height="2" fill="#BCC9CF"/><rect x="845.8" y="249.9" width="28.8" height="2" fill="#BCC9CF"/><rect x="845.8" y="268.8" width="28.8" height="2" fill="#BCC9CF"/>
+    <circle cx="772" cy="231" r="45.36" fill="#DCE5E9"/>
+    <circle cx="772" cy="231" r="32.6592" fill="none" stroke="#BCC9CF" stroke-width="2"/>
+    <circle cx="772" cy="231" r="19.051199999999998" fill="none" stroke="#BCC9CF" stroke-width="2"/>
+    <path d="M726.64 231h90.72M772 185.64v90.72" stroke="#BCC9CF" stroke-width="2"/>
+    <circle cx="772" cy="231" r="6.3504000000000005" fill="#5B6878"/>
+    <rect x="710.8" y="294" width="21.599999999999998" height="5" fill="#5B6878"/>
+    <rect x="847.6" y="294" width="21.599999999999998" height="5" fill="#5B6878"/>
+  </g></g>
+  <!-- (6) condenser coil: the finned panel; (7) the outdoor fan -->
+  <!-- (8) service valves -->
+  <circle cx="680" cy="206" r="8" fill="#F5B562"/>
+  <circle cx="680" cy="228" r="8" fill="#F5B562"/>
+
+  <path d="M170 115L120 60" stroke="#08425A" stroke-width="2" stroke-dasharray="4 4"/>
+  <g>
+    <circle cx="110" cy="52" r="15" fill="#08425A"/>
+    <text x="110" y="57.5" text-anchor="middle" font-family="ui-sans-serif, system-ui, sans-serif" font-size="16" font-weight="700" fill="#FFFFFF">1</text>
+  </g>
+  <path d="M240 150L200 280" stroke="#08425A" stroke-width="2" stroke-dasharray="4 4"/>
+  <g>
+    <circle cx="196" cy="292" r="15" fill="#08425A"/>
+    <text x="196" y="297.5" text-anchor="middle" font-family="ui-sans-serif, system-ui, sans-serif" font-size="16" font-weight="700" fill="#FFFFFF">2</text>
+  </g>
+  <path d="M285 196L380 290" stroke="#08425A" stroke-width="2" stroke-dasharray="4 4"/>
+  <g>
+    <circle cx="390" cy="300" r="15" fill="#08425A"/>
+    <text x="390" y="305.5" text-anchor="middle" font-family="ui-sans-serif, system-ui, sans-serif" font-size="16" font-weight="700" fill="#FFFFFF">3</text>
+  </g>
+  <path d="M400 186L440 70" stroke="#08425A" stroke-width="2" stroke-dasharray="4 4"/>
+  <g>
+    <circle cx="446" cy="58" r="15" fill="#08425A"/>
+    <text x="446" y="63.5" text-anchor="middle" font-family="ui-sans-serif, system-ui, sans-serif" font-size="16" font-weight="700" fill="#FFFFFF">4</text>
+  </g>
+  <path d="M490 300L520 340" stroke="#08425A" stroke-width="2" stroke-dasharray="4 4"/>
+  <g>
+    <circle cx="530" cy="350" r="15" fill="#08425A"/>
+    <text x="530" y="355.5" text-anchor="middle" font-family="ui-sans-serif, system-ui, sans-serif" font-size="16" font-weight="700" fill="#FFFFFF">5</text>
+  </g>
+  <path d="M856 240L900 140" stroke="#08425A" stroke-width="2" stroke-dasharray="4 4"/>
+  <g>
+    <circle cx="906" cy="128" r="15" fill="#08425A"/>
+    <text x="906" y="133.5" text-anchor="middle" font-family="ui-sans-serif, system-ui, sans-serif" font-size="16" font-weight="700" fill="#FFFFFF">6</text>
+  </g>
+  <path d="M766 231L760 140" stroke="#08425A" stroke-width="2" stroke-dasharray="4 4"/>
+  <g>
+    <circle cx="756" cy="128" r="15" fill="#08425A"/>
+    <text x="756" y="133.5" text-anchor="middle" font-family="ui-sans-serif, system-ui, sans-serif" font-size="16" font-weight="700" fill="#FFFFFF">7</text>
+  </g>
+  <path d="M680 216L650 120" stroke="#08425A" stroke-width="2" stroke-dasharray="4 4"/>
+  <g>
+    <circle cx="646" cy="108" r="15" fill="#08425A"/>
+    <text x="646" y="113.5" text-anchor="middle" font-family="ui-sans-serif, system-ui, sans-serif" font-size="16" font-weight="700" fill="#FFFFFF">8</text>
+  </g>
+</svg>

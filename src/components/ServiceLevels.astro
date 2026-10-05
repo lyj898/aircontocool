@@ -1,0 +1,83 @@
+---
+/**
+ * General servicing, chemical wash and chemical overhaul, side by side: how
+ * far each one takes the unit apart, and what it cleans. It describes the
+ * visits; when to choose which is OurKampung's guide, linked below.
+ */
+import { company } from '../lib/data';
+import { urls } from '../lib/urls';
+
+interface Props {
+  /** The current page's service, outlined. */
+  current?: string;
+}
+
+const { current } = Astro.props;
+
+const levels = [
+  {
+    slug: 'aircon-servicing',
+    name: 'General servicing',
+    illo: 'level-general',
+    alt: 'A wall aircon with its filter lifted out and a brush at the face of the coil',
+    depth: 'Unit stays up, front opened',
+    items: ['Filters washed', 'Coil face and blower cleaned', 'Drainage flushed', 'Unit tested'],
+  },
+  {
+    slug: 'aircon-chemical-wash',
+    name: 'Chemical wash',
+    illo: 'level-wash',
+    alt: 'A wall aircon wrapped in a catch bag draining into a bucket while its coil is sprayed',
+    depth: 'Unit stays up, wrapped in a catch bag',
+    items: ['Everything in a service', 'Coil treated and rinsed through', 'Blower and drain tray washed', 'Outdoor coil often washed'],
+  },
+  {
+    slug: 'aircon-chemical-overhaul',
+    name: 'Chemical overhaul',
+    illo: 'level-overhaul',
+    alt: 'An empty mounting outline on the wall, with the aircon’s coil soaking in a tub and its fan and casing beside it',
+    depth: 'Unit taken down and stripped to parts',
+    items: ['Everything in a wash', 'Every part soaked and scrubbed', 'Casing cleaned inside and out', 'Rebuilt, remounted, tested'],
+  },
+];
+
+const tick = 'M13.5 4.5 6.5 12 2.5 8.2';
+---
+
+<div>
+  <ol class="grid gap-5 md:grid-cols-3">
+    {levels.map((l, i) => (
+      <li class={`flex flex-col rounded-card border bg-surface ${l.slug === current ? 'border-brand ring-2 ring-brand/20' : 'border-line'}`}>
+        <div class="border-b border-line bg-canvas px-4 pt-3">
+          <img src={`/illo/${l.illo}.svg`} alt={l.alt} width="240" height="180" loading="lazy" decoding="async" class="mx-auto h-36 w-auto" />
+        </div>
+        <div class="flex flex-1 flex-col p-5">
+          <p class="text-xs font-semibold uppercase tracking-wide text-ink-faint">Level {i + 1}</p>
+          <h3 class="mt-1 font-semibold">{l.name}</h3>
+          <p class="mt-1 text-sm font-medium text-brand">{l.depth}</p>
+          <ul class="mt-4 space-y-2">
+            {l.items.map((it) => (
+              <li class="flex gap-2.5 text-sm leading-relaxed text-ink-muted">
+                <svg class="mt-1 shrink-0 text-brand" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d={tick} /></svg>
+                <span>{it}</span>
+              </li>
+            ))}
+          </ul>
+          <div class="mt-auto pt-5">
+            {l.slug === current ? (
+              <p class="text-sm font-semibold text-ink">This page</p>
+            ) : (
+              <a href={urls.service(l.slug)} class="text-sm font-semibold text-brand no-underline hover:underline">{l.name} &rarr;</a>
+            )}
+          </div>
+        </div>
+      </li>
+    ))}
+  </ol>
+  <p class="mt-6 max-w-3xl text-sm text-ink-muted">
+    Each level takes longer than the one before, so it usually costs more. Which one a unit
+    needs is explained in
+    <a href={company.guide.url} class="text-brand underline underline-offset-2">{company.guide.site}’s aircon servicing guide</a>,
+    a sister guide run by the same team.
+  </p>
+</div>

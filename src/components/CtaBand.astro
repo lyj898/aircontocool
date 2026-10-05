@@ -1,0 +1,28 @@
+---
+/** Closing CTA. The enquiry form is the only contact channel on this site. */
+import { urls } from '../lib/urls';
+
+interface Props {
+  heading: string;
+  body?: string;
+  /** In-page anchor to the form when the page has one; otherwise /contact/. */
+  href?: string;
+}
+
+const { heading, body, href = urls.contact() } = Astro.props;
+---
+
+<section class="bg-brand text-white">
+  <div class="wrap py-14 text-center sm:py-16">
+    <h2 class="mx-auto max-w-2xl text-2xl font-semibold sm:text-3xl">{heading}</h2>
+    {body && <p class="mx-auto mt-4 max-w-xl text-white/80">{body}</p>}
+    <div class="mt-8">
+      <a
+        href={href}
+        class="inline-flex items-center justify-center rounded-lg bg-white px-8 py-4 text-base font-semibold text-brand no-underline transition-colors hover:bg-brand-light"
+      >
+        Ask for a quote
+      </a>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 180" width="240" height="180">
+<path d="M24 98C16 50 64 22 120 22c58 0 100 26 98 74-2 46-50 64-100 64-52 0-86-18-94-62z" fill="#E2EEF2"/>
+  <ellipse cx="120" cy="160" rx="96" ry="5" fill="#CADCE2"/>
+  <rect x="34" y="34" width="172" height="120" fill="#FBF8F1"/>
+  <rect x="70" y="44" width="100" height="22" rx="2" fill="none" stroke="#BCC9CF" stroke-width="2.5" stroke-dasharray="5 4"/>
+  <path d="M84 72v8M156 72v8" stroke="#BCC9CF" stroke-width="2"/>
+  <rect x="44" y="132" width="96" height="8" rx="3" fill="#86C8DC"/>
+  <path d="M48 138h88l-5 14H53z" fill="#CADDE4"/>
+  <rect x="56" y="100" width="72" height="34" rx="2" fill="#B9C7A7"/>
+  <rect x="60" y="100" width="2" height="34" fill="#9EAE8B"/><rect x="66" y="100" width="2" height="34" fill="#9EAE8B"/><rect x="72" y="100" width="2" height="34" fill="#9EAE8B"/><rect x="78" y="100" width="2" height="34" fill="#9EAE8B"/><rect x="84" y="100" width="2" height="34" fill="#9EAE8B"/><rect x="90" y="100" width="2" height="34" fill="#9EAE8B"/><rect x="96" y="100" width="2" height="34" fill="#9EAE8B"/><rect x="102" y="100" width="2" height="34" fill="#9EAE8B"/><rect x="108" y="100" width="2" height="34" fill="#9EAE8B"/><rect x="114" y="100" width="2" height="34" fill="#9EAE8B"/><rect x="120" y="100" width="2" height="34" fill="#9EAE8B"/>
+  <path d="M46 126c14-4 78-4 92 0v8H46z" fill="#A8D8E8" opacity=".85"/>
+  <g transform="translate(176 110)"><circle r="14" fill="#DCE5E9"/><rect x="-1" y="-14" width="2" height="7" fill="#BCC9CF" transform="rotate(0)"/><rect x="-1" y="-14" width="2" height="7" fill="#BCC9CF" transform="rotate(36)"/><rect x="-1" y="-14" width="2" height="7" fill="#BCC9CF" transform="rotate(72)"/><rect x="-1" y="-14" width="2" height="7" fill="#BCC9CF" transform="rotate(108)"/><rect x="-1" y="-14" width="2" height="7" fill="#BCC9CF" transform="rotate(144)"/><rect x="-1" y="-14" width="2" height="7" fill="#BCC9CF" transform="rotate(180)"/><rect x="-1" y="-14" width="2" height="7" fill="#BCC9CF" transform="rotate(216)"/><rect x="-1" y="-14" width="2" height="7" fill="#BCC9CF" transform="rotate(252)"/><rect x="-1" y="-14" width="2" height="7" fill="#BCC9CF" transform="rotate(288)"/><rect x="-1" y="-14" width="2" height="7" fill="#BCC9CF" transform="rotate(324)"/><circle r="4" fill="#5B6878"/></g>
+  <rect x="150" y="134" width="50" height="16" rx="6" fill="#F7FAFB" stroke="#BCC9CF" stroke-width="1.5"/>
+  <rect x="148" y="80" width="46" height="9" rx="3" fill="#DCE5E9" transform="rotate(10 171 84)"/>
+</svg>

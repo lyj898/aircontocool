@@ -1,0 +1,32 @@
+---
+/**
+ * The R32 handling fact, with its official sources.
+ *
+ * The brief: check with the partner before calling anyone certified, and link
+ * the official source. The partner hasn't confirmed it (user, 5 Oct 2026), so
+ * this states what NEA says and how the reader can ask. It makes no claim
+ * about any firm. Sources checked on the date in company.json.
+ */
+import { company } from '../lib/data';
+import Icon from './Icon.astro';
+---
+
+<div class="flex gap-4 rounded-card border border-line bg-surface p-6">
+  <span class="flex size-11 shrink-0 items-center justify-center rounded-full bg-brand-light text-brand"><Icon name="shield" /></span>
+  <div>
+    <h2 class="text-lg font-semibold">R32 aircons and refrigerant handling</h2>
+    <p class="mt-3 text-sm leading-relaxed text-ink-muted">
+      Many newer household aircons use R32, a refrigerant that is mildly flammable. The
+      National Environment Agency (NEA) says that, to comply with SCDF’s requirements for
+      handling R32 systems, service personnel should have completed a training course run
+      by ITE: the
+      <a href={company.r32.iteUrl} class="text-brand underline underline-offset-2">Certificate of Competency in Residential Air-Conditioning System (Refrigerant)</a>.
+      NEA publishes a list of technicians who have completed it on
+      <a href={company.r32.neaUrl} class="text-brand underline underline-offset-2">its refrigerants page</a>.
+    </p>
+    <p class="mt-3 text-sm leading-relaxed text-ink-muted">
+      The refrigerant is named on the label of the outdoor unit. If yours uses R32, you can
+      ask the firm whether the technician coming has done the course before work starts.
+    </p>
+  </div>
+</div>

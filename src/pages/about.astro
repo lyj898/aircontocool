@@ -1,0 +1,84 @@
+---
+/**
+ * /about/
+ *
+ * Says plainly that this is a matching service run by the team behind Junk to
+ * Clear. The one link to Junk to Clear lives here, not in the footer.
+ */
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Section from '../components/Section.astro';
+import CtaBand from '../components/CtaBand.astro';
+
+import { company } from '../lib/data';
+import { urls } from '../lib/urls';
+import { meta } from '../lib/seo';
+
+const path = urls.about();
+const { title, description } = meta(
+  'About AirconToCool | Run by the Team Behind Junk to Clear',
+  'AirconToCool is an aircon matching service in Singapore, run by the team behind Junk to Clear. Partner aircon firms quote and do the work.',
+);
+---
+
+<BaseLayout title={title} description={description} path={path} crumbs={[{ name: 'About', path }]}>
+  <section class="border-b border-line bg-surface">
+    <div class="wrap grid gap-8 py-12 sm:py-16 lg:grid-cols-[1.4fr_1fr] lg:items-center">
+      <div>
+        <h1 class="text-3xl font-semibold sm:text-4xl lg:text-5xl">About {company.tradingName}</h1>
+        <p class="mt-5 max-w-2xl text-lg leading-relaxed text-ink-muted">
+          {company.tradingName} is an aircon matching service for homes and offices in
+          Singapore, run by the team behind
+          <a href={company.parentBrandUrl} class="text-brand underline underline-offset-2">{company.parentBrand}</a>.
+        </p>
+      </div>
+      <img
+        src="/illo/about.svg"
+        alt="An enquiry on a computer at a desk is passed, as an envelope, to an aircon technician standing by an outdoor unit with a toolbox"
+        width="480"
+        height="300"
+        fetchpriority="high"
+        decoding="async"
+        class="mx-auto h-auto w-full max-w-md"
+      />
+    </div>
+  </section>
+
+  <Section narrow>
+    <div class="prose-ac text-ink-muted">
+      <h2 class="text-ink">What we do</h2>
+      <p>
+        Getting an aircon serviced or fixed usually means searching, messaging round and
+        explaining the same units several times. {company.tradingName} makes it one step:
+        you tell us the service, the units and the property, and we pass your enquiry to a
+        partner aircon firm that handles that kind of job.
+      </p>
+      <p>
+        The partner firm contacts you, gives you a quick quote and, if you go ahead, does
+        the servicing, wash, overhaul, gas top-up or repair. {company.tradingName} doesn’t
+        service or repair aircons itself.
+      </p>
+
+      <h2 class="text-ink">Who we are</h2>
+      <p>
+        {company.tradingName} is run by the team behind {company.parentBrand}, which has
+        handled disposal and clearance jobs for households and businesses in Singapore since
+        {company.yearEstablished}. The same team reads every enquiry that comes through this
+        site and follows it up with the partner firm.
+      </p>
+
+      <h2 class="text-ink">What we won’t do</h2>
+      <ul class="list-disc space-y-2 pl-5">
+        <li>Publish prices we can’t stand behind. The firm quotes once it knows the job.</li>
+        <li>Post reviews or ratings we haven’t collected.</li>
+        <li>Sell your details. They go only to the firm that will quote you.</li>
+      </ul>
+    </div>
+
+    <p class="mt-10 text-ink-muted">
+      See <a href={urls.howItWorks()} class="text-brand underline underline-offset-2">how it works</a>,
+      or go straight to <a href={urls.service('aircon-servicing')} class="text-brand underline underline-offset-2">aircon servicing</a>.
+    </p>
+  </Section>
+
+  <CtaBand heading="Tell us about your aircon" body="One enquiry, passed to a partner aircon firm that will quote you." />
+</BaseLayout>

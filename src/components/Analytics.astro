@@ -1,0 +1,34 @@
+---
+/**
+ * GA4.
+ *
+ * One custom event, and only one: `generate_lead`, fired by LeadForm.astro
+ * after FormSubmit confirms delivery. It is the site's only key event. There
+ * is deliberately no form_start, no form_submit (GA4 enhanced measurement
+ * already sends that on every attempt), no generic button_click, and no phone or
+ * WhatsApp events: contact is form-only.
+ *
+ * The dataLayer exists whether or not GA4 is configured, so the event is
+ * testable in a build with no measurement ID. The gtag.js request is only made
+ * when PUBLIC_GA4_ID is set; without it the site loads no third-party script.
+ * No localStorage or sessionStorage is used anywhere.
+ */
+import { GA4_ID, hasAnalytics } from '../lib/env';
+---
+
+{hasAnalytics() && (
+  <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${GA4_ID}`} />
+)}
+
+<script is:inline define:vars={{ GA4_ID }}>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    window.dataLayer.push(arguments);
+  }
+  window.gtag = gtag;
+
+  if (GA4_ID) {
+    gtag('js', new Date());
+    gtag('config', GA4_ID);
+  }
+</script>
