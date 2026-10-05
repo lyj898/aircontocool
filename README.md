@@ -75,7 +75,10 @@ text (empty only where a visible label says the same) and width and height.
   and makes no claim about any firm. Any page mentioning NEA or R32 must link nea.gov.sg.
 - **One GA4 event:** `generate_lead`, after FormSubmit confirms delivery. The site's code sends no
   `form_submit`, `button_click` or `form_start`; enhanced measurement (left on) sends those by itself, and
-  they are never key events. Make `generate_lead` the only key event at setup (PORTFOLIO, "Enquiries").
+  they are never key events. `generate_lead` is the only key event, created by name with "Create with code"
+  at setup (PORTFOLIO, "Enquiries"). GA4 property "AirconToCool" 557346259 in the Junktoclear account,
+  stream 16042175537, measurement ID G-RKY48Y5G0W (the `PUBLIC_GA4_ID` repo variable). Set up by the
+  coordinator, 5 Oct 2026.
 - **Form.** Subject is `AirconToCool – <page>`; the payload carries Site and Page. The PDPA line says the
   details go to the team behind Junk to Clear, which passes them to the partner who'll quote. If sending
   fails, the visitor is told and everything they typed stays; no contact details are offered. No phone
