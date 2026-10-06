@@ -20,7 +20,6 @@ export function organizationNode(): JsonLdNode {
     '@type': 'Organization',
     '@id': ORG_ID,
     name: company.tradingName,
-    legalName: company.entityName,
     url: `${ORIGIN}/`,
     description: company.businessModelStatement,
     // The inbox is deliberately not published. Contact is form-only.
@@ -32,6 +31,9 @@ export function organizationNode(): JsonLdNode {
       availableLanguage: 'English',
     },
     areaServed: { '@type': 'Country', name: 'Singapore' },
+    // The family's mother site. No company runs the family, so no legalName
+    // or foundingDate (independence brief, 6 Oct 2026).
+    parentOrganization: { '@type': 'Organization', name: company.family.name, url: company.family.url },
   };
 }
 

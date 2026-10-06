@@ -24,6 +24,12 @@ export const BANNED_COPY = [
     why: 'claims certified or licensed technicians (only once the partner is checked, with the source linked)',
   },
   {
+    // Independence (6 Oct 2026): no company runs the family, and nothing is
+    // borrowed from SKAP or Junk to Clear.
+    re: /SKAP|Waste Management Pte|team behind Junk to Clear|trading name|established (in )?2009|since 2009|\bUEN\b/i,
+    why: 'names SKAP or borrows from Junk to Clear (the site is run by the OurKampung team)',
+  },
+  {
     re: /\b(testimonial|5[- ]star|rated \d|\d(\.\d)? stars?)\b/i,
     why: 'looks like a review or rating (none have been collected)',
   },

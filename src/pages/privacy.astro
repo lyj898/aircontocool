@@ -3,7 +3,7 @@
  * /privacy/
  *
  * PDPA privacy policy. The section that matters most for a matching service is
- * disclosure: the details go to the team behind Junk to Clear, which passes
+ * disclosure: the details go to the OurKampung team, which passes
  * them to the partner firm that will quote. The form's notice says the same.
  */
 import BaseLayout from '../layouts/BaseLayout.astro';
@@ -17,7 +17,7 @@ const { title, description } = meta(
   'How AirconToCool collects, uses and discloses personal data under Singapore’s PDPA, including passing enquiries to partner aircon firms.',
 );
 
-const lastUpdated = '5 October 2026';
+const lastUpdated = '6 October 2026';
 ---
 
 <BaseLayout title={title} description={description} path={path} crumbs={[{ name: 'Privacy policy', path }]}>
@@ -38,17 +38,17 @@ const lastUpdated = '5 October 2026';
       <p class="text-sm leading-relaxed">
         <strong class="font-semibold">The short version.</strong> {company.tradingName} is a
         matching service, not an aircon company. When you send an enquiry, your details
-        go to the team behind {company.parentBrand}, which passes them to the partner
-        aircon firm that will quote you. That is the point of the service, and the form
+        go to the OurKampung team, who pass them to the partner aircon firm that will
+        quote you. That is the point of the service, and the form
         says so before you send it. We don’t sell your data.
       </p>
     </div>
 
     <h2>1. Who we are</h2>
     <p>
-      This site is run by the team behind {company.parentBrand}, operated by
-      <strong>{company.entityName}</strong>. In this policy, “we”, “us” and “our” mean that
-      team. {company.tradingName} introduces homes and businesses in Singapore to independent
+      This site is run by the OurKampung team, which runs the
+      <a href={company.family.ourSitesUrl}>OurKampung family of sites</a>. In this policy,
+      “we”, “us” and “our” mean that team. {company.tradingName} introduces homes and businesses in Singapore to independent
       aircon firms. We don’t service or repair aircons ourselves.
     </p>
 

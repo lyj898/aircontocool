@@ -1,9 +1,16 @@
 # aircontocool.com
 
-AirconToCool: an aircon matching service in Singapore, run by the team behind Junk to Clear.
-Enquiries arrive through a FormSubmit form; the user passes each one to the team behind Junk to Clear,
-which passes it to a partner aircon firm. Built on PestToClear's structure (copied, not its text).
+AirconToCool: an aircon matching service in Singapore, run by the OurKampung team (part of the
+OurKampung family). Enquiries arrive through a FormSubmit form, and the OurKampung team passes each one to
+a partner aircon firm. Built on PestToClear's structure (copied, not its text).
 Brief: `../jtc-family/briefs/aircontocool.md`.
+
+**Independence (user, 6 Oct 2026; `../jtc-family/briefs/independence.md`).** No company runs the site, and
+none is named: no company, UEN, address or person, and no `legalName` or `foundingDate` in JSON-LD. The
+Organization node's `parentOrganization` is OurKampung. Nothing is borrowed from SKAP or Junk to Clear
+(no "established 2009", no "team behind Junk to Clear"); `copy-rules.mjs` fails the build on those.
+Junk to Clear is a separate company the family refers disposal, clearance and renovation jobs to. Aircon
+jobs are none of those, so this site has no link to it.
 
 ## Stack
 
@@ -76,17 +83,18 @@ text (empty only where a visible label says the same) and width and height.
 - **One GA4 event:** `generate_lead`, after FormSubmit confirms delivery. The site's code sends no
   `form_submit`, `button_click` or `form_start`; enhanced measurement (left on) sends those by itself, and
   they are never key events. `generate_lead` is the only key event, created by name with "Create with code"
-  at setup (PORTFOLIO, "Enquiries"). GA4 property "AirconToCool" 557346259 in the Junktoclear account,
+  at setup (PORTFOLIO, "Enquiries"). GA4 property "AirconToCool" 557346259 in the OurKampung account (403279198; moved 6 Oct 2026),
   stream 16042175537, measurement ID G-RKY48Y5G0W (the `PUBLIC_GA4_ID` repo variable). Set up by the
   coordinator, 5 Oct 2026.
-- **Form.** Subject is `AirconToCool – <page>`; the payload carries Site and Page. The PDPA line says the
-  details go to the team behind Junk to Clear, which passes them to the partner who'll quote. If sending
+- **Form.** Subject is `AirconToCool – <page>`; the payload carries Site and Page. The PDPA line reads
+  "Your details go to the OurKampung team, who pass them to the partner who'll quote for the job" (family
+  standard, 6 Oct 2026); the audit checks it. If sending
   fails, the visitor is told and everything they typed stays; no contact details are offered. No phone
   number, WhatsApp link or email address anywhere on the site.
 - **Family links.** Since the OurKampung family revamp (5 Oct 2026, `../jtc-family/briefs/family-revamp.md`)
   the footer says "Part of OurKampung", linking `https://ourkampung.com/` with `rel="nofollow"`; that is the
-  only family link in the header or footer, and none go to the sister sites. The About page links Junk to Clear
-  and OurKampung's `/our-sites/`; service pages link OurKampung's aircon guide in the text. Never
+  only family link in the header or footer, and none go to the sister sites. The About page links OurKampung's
+  `/our-sites/`; service pages link OurKampung's aircon guide in the text. Never
   `rel="noreferrer"`.
 
 ## Testing the form

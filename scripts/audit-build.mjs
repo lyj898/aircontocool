@@ -234,7 +234,9 @@ for (const p of pages.values()) {
 }
 
 // --- family links -------------------------------------------------------------
-const FAMILY = /https?:\/\/(www\.)?(junktoclear\.com\.sg|hometoclean\.com|hometomoved\.com|pesttoclear\.com|brokentofixed\.com|skillstofix\.com|ourkampung\.com|swyftclear\.com|relocado\.asia)/;
+// Family sites, plus the outside partner Junk to Clear and its SkillsToFix,
+// none of which may sit in the header or footer.
+const FAMILY = /https?:\/\/(www\.)?(junktoclear\.com\.sg|hometoclean\.com|hometomoved\.com|pesttoclear\.com|brokentofixed\.com|spacetoreno\.com|skillstofix\.com|ourkampung\.com|swyftclear\.com|relocado\.asia)/;
 for (const p of pages.values()) {
   const chrome = [
     (p.html.match(/<header[\s\S]*?<\/header>/) ?? [''])[0],
@@ -270,7 +272,7 @@ for (const p of pages.values()) {
     const subject = (p.html.match(/(?:let|const|var) subject = ("[^"]*")/) ?? [])[1];
     const parsed = subject ? JSON.parse(subject) : '';
     if (!/^AirconToCool – \S/.test(parsed)) err(`${p.route}: form subject is "${parsed}", expected "AirconToCool – <page>"`);
-    if (!/team behind Junk to Clear/.test(textOf(p.html))) err(`${p.route}: form without the PDPA notice naming the team behind Junk to Clear`);
+    if (!/Your details go to the OurKampung team, who pass them to the partner who’ll quote for the job/.test(textOf(p.html))) err(`${p.route}: form without the family's PDPA notice (the OurKampung team)`);
     if ((p.html.match(/<form data-lead-form/g) ?? []).length > 1) err(`${p.route}: more than one enquiry form`);
   } else if (events.length) {
     err(`${p.route}: GA4 event without a form`);

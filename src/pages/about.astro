@@ -2,8 +2,9 @@
 /**
  * /about/
  *
- * Says plainly that this is a matching service run by the team behind Junk to
- * Clear. The one link to Junk to Clear lives here, not in the footer.
+ * Says plainly that this is a matching service run by the OurKampung team,
+ * and links the family's /our-sites/ page. No company is named, and nothing
+ * borrowed from Junk to Clear (independence brief, 6 Oct 2026).
  */
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Section from '../components/Section.astro';
@@ -15,8 +16,8 @@ import { meta } from '../lib/seo';
 
 const path = urls.about();
 const { title, description } = meta(
-  'About AirconToCool | Run by the Team Behind Junk to Clear',
-  'AirconToCool is an aircon matching service in Singapore, run by the team behind Junk to Clear. Partner aircon firms quote and do the work.',
+  'About AirconToCool | Run by the OurKampung Team',
+  'AirconToCool is an aircon matching service in Singapore, run by the OurKampung team. Partner aircon firms quote and do the work.',
 );
 ---
 
@@ -27,8 +28,7 @@ const { title, description } = meta(
         <h1 class="text-3xl font-semibold sm:text-4xl lg:text-5xl">About {company.tradingName}</h1>
         <p class="mt-5 max-w-2xl text-lg leading-relaxed text-ink-muted">
           {company.tradingName} is an aircon matching service for homes and offices in
-          Singapore, run by the team behind
-          <a href={company.parentBrandUrl} class="text-brand underline underline-offset-2">{company.parentBrand}</a>.
+          Singapore, run by {company.team}.
         </p>
       </div>
       <img
@@ -60,14 +60,13 @@ const { title, description } = meta(
 
       <h2 class="text-ink">Who we are</h2>
       <p>
-        {company.tradingName} is run by the team behind {company.parentBrand}, which has
-        handled disposal and clearance jobs for households and businesses in Singapore since
-        {company.yearEstablished}. The same team reads every enquiry that comes through this
-        site and follows it up with the partner firm.
+        {company.tradingName} is run by {company.team}, who also write OurKampung’s guides
+        to running a home in Singapore. The same team reads every enquiry that comes through
+        this site and follows it up with the partner firm.
       </p>
       <p>
         {company.tradingName} is one of a small family of service sites and guides run by the
-        same team, and <a href="https://ourkampung.com/our-sites/">OurKampung lists them all</a>.
+        same team, and <a href={company.family.ourSitesUrl}>OurKampung lists them all</a>.
       </p>
 
       <h2 class="text-ink">What we won’t do</h2>

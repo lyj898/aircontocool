@@ -50,11 +50,11 @@ export interface Service {
 }
 
 export interface Company {
-  entityName: string;
   tradingName: string;
-  parentBrand: string;
-  parentBrandUrl: string;
-  yearEstablished: number;
+  /** Who runs the site, as written mid-sentence: "the OurKampung team". No company is named (6 Oct 2026). */
+  team: string;
+  /** The family's mother site. */
+  family: { name: string; url: string; ourSitesUrl: string };
   siteUrl: string;
   operatingHoursDisplay: string;
   businessModelStatement: string;

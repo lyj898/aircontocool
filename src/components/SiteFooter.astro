@@ -3,8 +3,8 @@
  * Site footer. The one family link here is "Part of OurKampung", the family's
  * mother site (OurKampung family revamp, 5 Oct 2026), marked nofollow because
  * it's for readers, not rankings, and never noreferrer, so GA4 still credits
- * the visit. No footer links to the sister sites themselves; the About page
- * carries the one link to Junk to Clear.
+ * the visit. No footer links to the sister sites themselves, and no company
+ * is named: the family is run by the OurKampung team (6 Oct 2026).
  */
 import Wordmark from './Wordmark.astro';
 import { company, services } from '../lib/data';
@@ -45,14 +45,14 @@ const link = 'text-sm text-ink-muted no-underline hover:text-brand';
 
     <div class="mt-12 border-t border-line pt-8 text-sm leading-relaxed text-ink-muted">
       <p>
-        {company.tradingName} is run by the team behind {company.parentBrand}.
+        {company.tradingName} is run by {company.team}.
         The work is carried out by independent partner aircon firms.
       </p>
       <p class="mt-1">{company.operatingHoursDisplay}</p>
       <p class="mt-1">
-        Part of <a href="https://ourkampung.com/" rel="nofollow" class="text-ink-muted underline underline-offset-2 hover:text-brand">OurKampung</a>.
+        Part of <a href={company.family.url} rel="nofollow" class="text-ink-muted underline underline-offset-2 hover:text-brand">OurKampung</a>.
       </p>
-      <p class="mt-6 text-2xs text-ink-faint">&copy; {year} {company.entityName}.</p>
+      <p class="mt-6 text-2xs text-ink-faint">&copy; {year} {company.tradingName}.</p>
     </div>
   </div>
 </footer>
